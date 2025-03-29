@@ -1,52 +1,73 @@
-<section class="bg-black text-white py-20 min-h-screen">
-  <div class="container mx-auto flex flex-col lg:flex-row items-center justify-between space-y-12 lg:space-y-0">
-    
-    <!-- 📝 Sección de Texto -->
-    <div class="w-full lg:w-1/2 px-6">
-      <h1 class="text-3xl md:text-5xl text-yellow-300 font-bold">About Us</h1>
-      <p class="mt-4 text-lg md:text-xl text-gray-300">
-        Conoce la tecnología y el propósito detrás del proyecto 
-        <span class="text-yellow-400 font-semibold">TerrenaitorRover</span>.
+<section id="about" class="relative text-white min-h-[50vh] bg-cover bg-center" style="background-image: url('assets/imageAbout3.png'); background-position: center center; background-size: cover;">
+  <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/10 z-[1]"></div>
+
+  <div class="relative container mx-auto px-6 py-24 max-w-4xl z-[2] flex justify-center items-center text-center">
+    <div class="w-full max-w-2xl space-y-6 bg-black/40 backdrop-blur-sm rounded-xl p-6 shadow-lg">
+      <h1 class="text-4xl md:text-5xl font-bold text-yellow-400">Sobre Nosotros</h1>
+      <p class="text-lg md:text-xl text-gray-200">
+        Conoce la tecnología, historia y visión detrás del ambicioso proyecto
+        <span class="text-yellow-400 font-semibold">TerrenaitorRover</span>, un rover terrestre autónomo diseñado para enfrentar los terrenos más hostiles y desafiantes del planeta.
       </p>
+    </div>
+  </div>
+</section>
 
-      <!-- Historia -->
-      <div class="mt-6">
-        <h2 class="text-2xl text-yellow-300 font-semibold mb-2">Historia del Proyecto</h2>
-        <p class="text-gray-300">
-          TerrenaitorRover nació como una iniciativa de estudiantes, egresados y profesores apasionados por la robótica y la exploración espacial. Nuestro objetivo es desarrollar un rover capaz de explorar terrenos hostiles mientras fomentamos la educación y la innovación tecnológica.
-        </p>
-      </div>
+<!-- Historia del Proyecto -->
+<section class="bg-black text-white py-20">
+  <div class="max-w-5xl mx-auto px-6 space-y-10">
+    <div class="space-y-2">
+      <h2 class="text-2xl text-yellow-300 font-semibold">Historia del Proyecto</h2>
+      <p class="text-gray-300">
+        TerrenaitorRover nació como una iniciativa interdisciplinaria en una universidad mexicana, uniendo la pasión por la exploración, la robótica y la ciencia aplicada. Desde 2023, el equipo ha estado desarrollando un prototipo funcional inspirado en misiones planetarias reales, enfrentando retos tanto técnicos como colaborativos.
+      </p>
+      <p class="text-gray-400">
+        El equipo está compuesto por estudiantes, egresados y docentes de diversas áreas de ingeniería, física, diseño industrial y ciencias computacionales. Su colaboración ha dado lugar a múltiples iteraciones del rover, cada vez más sofisticadas.
+      </p>
+    </div>
 
-      <!-- Tecnología -->
-      <div class="mt-6">
-        <h2 class="text-2xl text-yellow-300 font-semibold mb-2">Tecnología Utilizada</h2>
-        <ul class="list-disc list-inside text-gray-300 space-y-1">
-          <li><strong>Hardware:</strong> Sensores LIDAR, chasis reforzado, brazo robótico.</li>
-          <li><strong>Software:</strong> Inteligencia artificial, Python, ROS, C++.</li>
-          <li><strong>Materiales:</strong> Aluminio, fibra de carbono, impresión 3D.</li>
-        </ul>
-      </div>
+    <div class="space-y-2">
+      <h2 class="text-2xl text-yellow-300 font-semibold">Tecnología Utilizada</h2>
+      <ul class="list-disc list-inside text-gray-300 space-y-1">
+        <li><strong>Hardware:</strong> Sistema de suspensión articulado, sensores LIDAR y ultrasónicos, cámara RGB y térmica.</li>
+        <li><strong>Software:</strong> IA para navegación autónoma, detección de obstáculos, SLAM, ROS, Python y C++.</li>
+        <li><strong>Diseño:</strong> Prototipado en CAD, chasis modular impreso en 3D con materiales ligeros y resistentes.</li>
+      </ul>
+    </div>
 
-      <!-- Misión y Visión -->
-      <div class="mt-6">
-        <h2 class="text-2xl text-yellow-300 font-semibold mb-2">Misión y Visión</h2>
-        <p class="text-gray-300 mb-2">
-          <strong>Misión:</strong> Crear un rover autónomo que supere desafíos en exploración terrestre y espacial.
-        </p>
-        <p class="text-gray-300">
-          <strong>Visión:</strong> Posicionarnos como un equipo de innovación en ingeniería y exploración robótica.
-        </p>
+    <div class="space-y-6">
+      <h2 class="text-2xl text-yellow-300 font-semibold">Misión y Visión</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-gray-900 p-6 rounded-lg text-center">
+          <h3 class="text-xl text-yellow-300 font-semibold mb-2">Misión</h3>
+          <p class="text-gray-300">
+            Desarrollar tecnología robótica autónoma con fines educativos, científicos y de exploración aplicada.
+          </p>
+        </div>
+        <div class="bg-gray-900 p-6 rounded-lg text-center">
+          <h3 class="text-xl text-yellow-300 font-semibold mb-2">Visión</h3>
+          <p class="text-gray-300">
+            Convertirnos en un referente latinoamericano en innovación tecnológica para la exploración remota.
+          </p>
+        </div>
       </div>
     </div>
 
-    <!-- 🖼️ Imagen Cuadrada Más a la Derecha -->
-    <div class="w-full lg:w-1/2 flex justify-start px-6">
-      <div class="ml-64 bg-black p-[90px] border-2 border-yellow-400 shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-yellow-400/50">
-        <img src="https://user-images.githubusercontent.com/54521023/116969931-bedb0100-acd4-11eb-99a9-ff5e0ee9f31f.png"
-             alt="Terrenaitor Rover"
-             class="w-[300px] h-[300px] object-cover">
-      </div>
+    <div class="space-y-2">
+      <h2 class="text-2xl text-yellow-300 font-semibold">Objetivos del Proyecto</h2>
+      <ul class="list-disc list-inside text-gray-300 space-y-1">
+        <li>Fomentar el aprendizaje práctico en áreas STEM.</li>
+        <li>Desarrollar un vehículo capaz de navegar de forma autónoma en terrenos no estructurados.</li>
+        <li>Difundir la ciencia y tecnología en ferias, competencias y eventos educativos.</li>
+        <li>Conectar la educación con la industria mediante soluciones reales.</li>
+      </ul>
     </div>
+  </div>
+</section>
 
+<!-- Secciones adicionales -->
+<section class="bg-black text-white py-20">
+  <div class="max-w-5xl mx-auto px-6 text-center">
+    <h2 class="text-3xl md:text-4xl font-bold text-yellow-400">Explora más sobre nuestro trabajo</h2>
+    <p class="mt-4 text-lg text-gray-300">Cada componente del TerrenaitorRover ha sido desarrollado pensando en la funcionalidad, eficiencia y exploración en entornos extremos. Descubre nuestros proyectos y eventos.</p>
   </div>
 </section>
