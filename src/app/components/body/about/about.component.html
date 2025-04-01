@@ -1,114 +1,127 @@
-<!-- Sección: Sobre Nosotros -->
-<section id="about" class="relative text-white min-h-[70vh] bg-black">
-  <div class="container mx-auto px-4 py-20 grid md:grid-cols-2 gap-10 items-stretch">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TerrenaitorRover - Sobre Nosotros</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+    }
 
-    <!-- Imagen a la izquierda -->
-    <div class="h-full overflow-hidden rounded-lg shadow-lg transition-transform duration-700 hover:scale-105 flex items-stretch">
-      <img src="assets/imageAbout3.png" alt="Imagen TerrenaitorRover" class="w-full h-full object-cover">
-    </div>
+    .logo-background-fixed {
+      background-image: url('/assets/logo.png');
+      background-size: contain;
+      background-position: top center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.1;
+    }
+  </style>
+</head>
+<body class="bg-[#0e0e0e] text-white text-center text-[16px] md:text-[18px] leading-relaxed antialiased">
 
-    <!-- Texto a la derecha -->
-    <div class="bg-black/70 backdrop-blur p-8 space-y-6 shadow-xl border border-yellow-500 transition-opacity duration-700 hover:opacity-95 flex flex-col justify-center">
-      <h1 class="text-4xl md:text-5xl font-extrabold text-yellow-400 tracking-tight">Sobre Nosotros</h1>
-      <p class="text-lg text-gray-200 leading-relaxed">
-        <span class="text-yellow-400 font-semibold">TerrenaitorRover</span> es una iniciativa tecnológica nacida en 2024 en Perú. Está liderada principalmente por estudiantes, egresados y docentes de la <strong class="text-yellow-300">Universidad Nacional de Ingeniería (UNI)</strong>, reconocida por su excelencia académica e innovación.
-      </p>
-      <p class="text-sm text-gray-300">
-        Nuestro objetivo es diseñar un rover autónomo capaz de afrontar entornos desafiantes, integrando ingeniería, ciencia y visión social para impactar positivamente en la educación, la industria y la exploración tecnológica.
-      </p>
+  <!-- CONTENEDOR CON FONDO DE LOGO -->
+  <div class="relative">
+    <!-- Fondo del logo con parallax -->
+    <div class="logo-background-fixed"></div>
+
+    <!-- CONTENIDO PRINCIPAL CON FONDO NEGRO TRANSPARENTE -->
+    <div class="relative z-10 space-y-0">
+      
+      <!-- SOBRE NOSOTROS -->
+      <section id="about" class="py-15 bg-transparent">
+        <div class="max-w-5xl mx-auto px-6 flex flex-col items-center space-y-6">
+          <h1 class="text-4xl md:text-5xl font-bold text-[#facc15] drop-shadow-lg">Sobre Nosotros</h1>
+          <p><span class="font-semibold text-white">TerrenaitorRover</span> es una iniciativa tecnológica nacida en 2024 en Perú, liderada por estudiantes, egresados y docentes de la <strong class="text-[#f5e29d]">Universidad Nacional de Ingeniería (UNI)</strong>.</p>
+          <p class="text-gray-300">Diseñamos un rover autónomo para entornos desafiantes, integrando ingeniería, ciencia y visión social para impactar en educación, industria y exploración tecnológica.</p>
+          <a href="#team" class="inline-block px-6 py-2 bg-[#facc15] text-black rounded-lg font-semibold shadow-md hover:bg-[#ffe066] transition">Ver Nuestro Grupo</a>
+        </div>
+      </section>
+
+      <!-- HISTORIA DEL PROYECTO -->
+      <section class="py-15 bg-transparent">
+        <div class="max-w-6xl mx-auto px-6 space-y-6">
+          <h2 class="text-3xl md:text-4xl font-bold text-[#facc15]">Historia del Proyecto</h2>
+          <p class="text-gray-300">
+            <span class="text-[#facc15] font-medium">2024</span>. Un grupo de estudiantes de la Universidad Nacional de Ingeniería (UNI) dio inicio a un proyecto que combinara tecnología, visión y propósito, diseñando un rover autónomo capaz de explorar terrenos extremos con inteligencia propia. Lo que comenzó como una idea en aulas y laboratorios pronto se transformó en un equipo colaborativo multidisciplinario, sumando el talento de egresados y docentes en mecatrónica, electrónica, sistemas, industrial y física. Hoy, <span class="text-white font-semibold">TerrenaitorRover</span> es más que un prototipo: es una plataforma de formación, innovación y transferencia de conocimiento con impacto real en la sociedad y el desarrollo tecnológico del país.
+          </p>
+          <div class="grid md:grid-cols-2 gap-6 pt-6">
+            <div class="bg-[#1a1a1a]/90 border border-[#facc15] p-6 rounded-xl space-y-4 shadow-md">
+              <h3 class="text-2xl font-semibold text-[#facc15]">Misión</h3>
+              <p class="text-gray-300">Desarrollar tecnología robótica autónoma para educación, ciencia y exploración, impulsando el aprendizaje aplicado desde la academia al campo.</p>
+            </div>
+            <div class="bg-[#1a1a1a]/90 border border-[#facc15] p-6 rounded-xl space-y-4 shadow-md">
+              <h3 class="text-2xl font-semibold text-[#facc15]">Visión</h3>
+              <p class="text-gray-300">Ser un referente latinoamericano en exploración robótica, con enfoque en innovación, sostenibilidad y formación de talento joven.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PILARES -->
+      <section class="py-15 bg-transparent">
+      
+        <div class="max-w-6xl mx-auto px-6 space-y-10">
+          <h2 class="text-3xl md:text-4xl font-bold text-[#facc15]">Nuestros Pilares</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-left">
+            <div class="border-l-4 border-[#facc15] pl-4">
+              <h4 class="text-lg font-semibold text-[#facc15]">Tecnología</h4>
+              <p class="text-gray-400 text-sm">Robótica, IA, CAD y programación moderna.</p>
+            </div>
+            <div class="border-l-4 border-[#facc15] pl-4">
+              <h4 class="text-lg font-semibold text-[#facc15]">Educación</h4>
+              <p class="text-gray-400 text-sm">Formación práctica y colaborativa.</p>
+            </div>
+            <div class="border-l-4 border-[#facc15] pl-4">
+              <h4 class="text-lg font-semibold text-[#facc15]">Impacto</h4>
+              <p class="text-gray-400 text-sm">Divulgación científica y ferias.</p>
+            </div>
+            <div class="border-l-4 border-[#facc15] pl-4">
+              <h4 class="text-lg font-semibold text-[#facc15]">Colaboración</h4>
+              <p class="text-gray-400 text-sm">Interdisciplinariedad para retos reales.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- GALERÍA -->
+      <section class="py-15 bg-transparent">
+        <div class="max-w-6xl mx-auto px-6 space-y-8">
+          <h2 class="text-3xl md:text-4xl font-bold text-[#facc15]">Momentos del Equipo</h2>
+          <p class="text-gray-400 max-w-3xl mx-auto">
+            Pruebas de campo, diseño, armado del prototipo y más. Cada etapa representa un paso hacia la innovación con impacto.
+          </p>
+          <div class="grid md:grid-cols-3 gap-6">
+            <img src="assets/equipo1.jpg" alt="Equipo Terrenaitor" class="w-full h-56 object-cover rounded-xl border border-gray-800 bg-[#1a1a1a]">
+            <img src="assets/prototipo1.jpg" alt="Prototipo Rover" class="w-full h-56 object-cover rounded-xl border border-gray-700">
+            <img src="assets/test1.jpg" alt="Prueba en campo" class="w-full h-56 object-cover rounded-xl border border-gray-700">
+          </div>
+        </div>
+      </section>
+      
     </div>
   </div>
-</section>
 
-<!-- Sección: Historia, Misión, Visión, Pilares y Galería -->
-<section class="bg-gradient-to-b from-black via-gray-900 to-black text-white py-16">
-  <div class="max-w-6xl mx-auto px-4 space-y-20">
-
-    <!-- Historia del Proyecto -->
-    <div class="space-y-6 transition duration-700 hover:scale-[1.01]">
-      <h2 class="text-3xl font-bold text-yellow-300 border-l-4 border-yellow-400 pl-4">Historia del Proyecto</h2>
-      <div class="space-y-4 text-gray-300 text-sm">
-        <p>
-          En <span class="text-yellow-400 font-medium">2024</span>, un grupo de estudiantes de la UNI se unió con una meta ambiciosa: construir un vehículo robótico de exploración que combinara inteligencia artificial, diseño mecánico y autonomía real. Así nació <strong>TerrenaitorRover</strong>, como una propuesta que rompiera las barreras del aula para enfrentar desafíos del mundo real.
-        </p>
-        <p>
-          El proyecto fue creciendo con el apoyo de docentes y egresados, sumando talento de áreas como mecatrónica, sistemas, industrial y física. Desde entonces, se han realizado múltiples pruebas, rediseños y participaciones en eventos nacionales.
-        </p>
-        <p class="text-gray-400">
-          Más allá del desarrollo técnico, el equipo ha creado un espacio de aprendizaje, innovación y colaboración que promueve la tecnología con propósito y visión de futuro.
-        </p>
-      </div>
-    </div>
-
-    <!-- Misión y Visión -->
-    <div class="grid md:grid-cols-2 gap-6">
-      <div class="bg-gradient-to-br from-gray-800 to-black border border-yellow-500 p-5 transition-transform duration-500 hover:scale-105">
-        <h3 class="text-xl font-semibold text-yellow-300 uppercase mb-2">Misión</h3>
-        <p class="text-gray-300 text-sm leading-relaxed">
-          Desarrollar tecnología robótica autónoma con fines educativos, científicos y de exploración, impulsando el aprendizaje aplicado desde la academia hacia el campo real.
-        </p>
-      </div>
-      <div class="bg-gradient-to-br from-gray-800 to-black border border-yellow-500 p-5 transition-transform duration-500 hover:scale-105">
-        <h3 class="text-xl font-semibold text-yellow-300 uppercase mb-2">Visión</h3>
-        <p class="text-gray-300 text-sm leading-relaxed">
-          Ser un referente tecnológico en Latinoamérica en soluciones de exploración robótica, con enfoque en innovación, sostenibilidad y formación de talento joven.
-        </p>
-      </div>
-    </div>
-
-    <!-- Pilares del Proyecto -->
-    <div class="space-y-6">
-      <h2 class="text-3xl font-bold text-yellow-300 border-l-4 border-yellow-400 pl-4">Nuestros Pilares</h2>
-      <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-4 text-center">
-        <div class="bg-gray-800 p-5 border border-gray-600 hover:border-yellow-400 transition-transform duration-300 hover:scale-105">
-          <h4 class="text-yellow-300 font-semibold mb-1">Tecnología</h4>
-          <p class="text-gray-400 text-sm">Robótica, IA, diseño CAD y programación moderna.</p>
-        </div>
-        <div class="bg-gray-800 p-5 border border-gray-600 hover:border-yellow-400 transition-transform duration-300 hover:scale-105">
-          <h4 class="text-yellow-300 font-semibold mb-1">Educación</h4>
-          <p class="text-gray-400 text-sm">Formación práctica y colaborativa para estudiantes.</p>
-        </div>
-        <div class="bg-gray-800 p-5 border border-gray-600 hover:border-yellow-400 transition-transform duration-300 hover:scale-105">
-          <h4 class="text-yellow-300 font-semibold mb-1">Impacto</h4>
-          <p class="text-gray-400 text-sm">Divulgación científica en comunidades y ferias.</p>
-        </div>
-        <div class="bg-gray-800 p-5 border border-gray-600 hover:border-yellow-400 transition-transform duration-300 hover:scale-105">
-          <h4 class="text-yellow-300 font-semibold mb-1">Colaboración</h4>
-          <p class="text-gray-400 text-sm">Interdisciplinariedad para resolver problemas reales.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Galería -->
-    <div class="space-y-6 text-center">
-      <h2 class="text-3xl font-bold text-yellow-300">Momentos del Equipo</h2>
-      <p class="text-gray-400 max-w-3xl mx-auto text-sm">
-        Pruebas de campo, sesiones de diseño, armado del prototipo y más. Cada etapa representa un paso hacia nuestra meta de innovación con impacto.
+  <!-- CTA FINAL SIN FONDO DE LOGO -->
+  <section class="bg-gradient-to-br from-[#eab308] via-[#ca8a04] to-[#a16207] text-black py-14 shadow-xl relative overflow-hidden">
+    <div class="absolute left-[-40px] top-1/2 w-40 h-40 bg-white/10 rounded-full blur-2xl animate-pulse"></div>
+    <div class="absolute right-[-40px] top-1/2 w-40 h-40 bg-white/10 rounded-full blur-2xl animate-pulse"></div>
+    <div class="max-w-4xl mx-auto px-6 text-center space-y-4 relative z-10">
+      <h2 class="text-4xl font-bold text-black drop-shadow-lg tracking-wide">Explora nuestro trabajo</h2>
+      <p class="text-black text-base max-w-2xl mx-auto leading-relaxed">
+        Sumérgete en los avances, pruebas y desarrollos que impulsan el crecimiento de nuestro rover autónomo. Cada proyecto refleja nuestra pasión por la innovación tecnológica.
       </p>
-      <div class="grid md:grid-cols-3 gap-4 mt-4">
-        <div class="overflow-hidden transition-transform duration-500 hover:scale-105">
-          <img src="assets/equipo1.jpg" alt="Equipo Terrenaitor" class="w-full h-56 object-cover border border-yellow-600">
-        </div>
-        <div class="overflow-hidden transition-transform duration-500 hover:scale-105">
-          <img src="assets/prototipo1.jpg" alt="Prototipo Rover" class="w-full h-56 object-cover border border-yellow-600">
-        </div>
-        <div class="overflow-hidden transition-transform duration-500 hover:scale-105">
-          <img src="assets/test1.jpg" alt="Prueba en campo" class="w-full h-56 object-cover border border-yellow-600">
-        </div>
-      </div>
+      <a href="#projects" class="inline-block px-5 py-2 bg-black text-[#facc15] rounded-lg font-semibold hover:bg-gray-900 transition">
+        Ver Proyectos
+      </a>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- CTA Final -->
-<section class="bg-black text-white py-16">
-  <div class="max-w-5xl mx-auto px-4 text-center space-y-6">
-    <h2 class="text-4xl md:text-5xl font-bold text-yellow-400">Explora más sobre nuestro trabajo</h2>
-    <p class="text-md md:text-lg text-gray-300 max-w-3xl mx-auto">
-      Cada componente del <span class="text-yellow-400 font-semibold">TerrenaitorRover</span> está diseñado con precisión para maximizar la funcionalidad, eficiencia y resistencia. Sumérgete en nuestros procesos, prototipos y misiones futuras.
-    </p>
-    <a href="#projects" class="inline-block px-8 py-3 border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black transition font-semibold uppercase tracking-widest">
-      Ver Proyectos
-    </a>
-  </div>
-</section>
+</body>
+</html>
