@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class EmailService {
 
-  private apiUrl = 'https://server-terrenaitor-rover.onrender.com/send-email'; // URL del backend
+  private apiUrl = 'https://servewebterrabots.onrender.com/send-email'; // URL del backend
 
   constructor(private http: HttpClient) {}
 
