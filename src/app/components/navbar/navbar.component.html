@@ -1,27 +1,67 @@
+<!-- navbar.component.html -->
 <nav class="bg-gray-700 border-b border-gray-600">
   <div class="max-w-full flex items-center justify-between mx-Sauto py-0 px-3">
-
     <!-- Logo bien a la izquierda con imagen -->
     <a href="/" class="flex items-center space-x-2 ">
       <!-- Imagen del logo en dorado -->
       <img src="assets/logo-copia.png" alt="TerrenaitorRover Logo" class="w-18 h-18 object-contain block" />
-      
+
       <!-- Texto de marca -->
       <span class="text-lg font-semibold text-white">Terrabots</span>
     </a>
 
     <!-- MenÃº de navegaciÃ³n alineado a la derecha -->
     <div class="hidden md:flex ml-170" id="navbar-default">
-      <ul class="font-medium flex flex-col md:flex-row md:space-x-6 p-4 md:p-0 mt-4 md:mt-0 bg-gray-700 md:bg-transparent">
+      <ul
+        class="font-medium flex flex-col md:flex-row md:space-x-6 p-4 md:p-0 mt-4 md:mt-0 bg-gray-700 md:bg-transparent">
 
-        <li><a routerLink="/home" routerLinkActive="text-yellow-400" class="text-white text-lg hover:text-yellow-400 px-3 py-2">Home</a></li>
-        <li><a routerLink="/about" routerLinkActive="text-yellow-400" class="text-white text-lg hover:text-yellow-400 px-3 py-2">About</a></li>
-        <li><a routerLink="/projects" routerLinkActive="text-yellow-400" class="text-white text-lg hover:text-yellow-400 px-3 py-2">Projects</a></li>
-        <li><a routerLink="/team" routerLinkActive="text-yellow-400" class="text-white text-lg hover:text-yellow-400 px-3 py-2">Team</a></li>
-        <li><a routerLink="/sponsors" routerLinkActive="text-yellow-400" class="text-white text-lg hover:text-yellow-400 px-3 py-2">Sponsors</a></li>
-        <li><a routerLink="/events" routerLinkActive="text-yellow-400" class="text-white text-lg hover:text-yellow-400 px-3 py-2">Events</a></li>
-        <li><a routerLink="/contact" routerLinkActive="text-yellow-400" class="text-white text-lg hover:text-yellow-400 px-3 py-2">Contact</a></li>
+        <li><a routerLink="/home" routerLinkActive="text-yellow-400"
+            class="text-white text-lg hover:text-yellow-400 px-3 py-2">Home</a></li>
+        <li><a routerLink="/about" routerLinkActive="text-yellow-400"
+            class="text-white text-lg hover:text-yellow-400 px-3 py-2">About</a></li>
+        <li><a routerLink="/projects" routerLinkActive="text-yellow-400"
+            class="text-white text-lg hover:text-yellow-400 px-3 py-2">Projects</a></li>
+        <li><a routerLink="/team" routerLinkActive="text-yellow-400"
+            class="text-white text-lg hover:text-yellow-400 px-3 py-2">Team</a></li>
+        <li><a routerLink="/sponsors" routerLinkActive="text-yellow-400"
+            class="text-white text-lg hover:text-yellow-400 px-3 py-2">Sponsors</a></li>
+        <li><a routerLink="/events" routerLinkActive="text-yellow-400"
+            class="text-white text-lg hover:text-yellow-400 px-3 py-2">Events</a></li>
+        <li><a routerLink="/contact" routerLinkActive="text-yellow-400"
+            class="text-white text-lg hover:text-yellow-400 px-3 py-2">Contact</a></li>
       </ul>
     </div>
+
+    <!-- Menú para móviles -->
+    <div class="md:hidden">
+      <button (click)="toggleMenu()" class="text-white">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
   </div>
+
+  <!-- Menú móvil -->
+  <div *ngIf="isMenuOpen" [ngClass]="{'rounded-lg': isMenuOpen}" class="md:hidden mt-4 space-y-2">
+    <ul
+      class="font-medium flex flex-col md:flex-row md:space-x-6 p-4 md:p-0 mt-4 md:mt-0 bg-gray-700 md:bg-transparent">
+
+      <li><a routerLink="/home" routerLinkActive="text-yellow-400"
+          class="text-white text-lg hover:text-yellow-400 px-3 py-2">Home</a></li>
+      <li><a routerLink="/about" routerLinkActive="text-yellow-400"
+          class="text-white text-lg hover:text-yellow-400 px-3 py-2">About</a></li>
+      <li><a routerLink="/projects" routerLinkActive="text-yellow-400"
+          class="text-white text-lg hover:text-yellow-400 px-3 py-2">Projects</a></li>
+      <li><a routerLink="/team" routerLinkActive="text-yellow-400"
+          class="text-white text-lg hover:text-yellow-400 px-3 py-2">Team</a></li>
+      <li><a routerLink="/sponsors" routerLinkActive="text-yellow-400"
+          class="text-white text-lg hover:text-yellow-400 px-3 py-2">Sponsors</a></li>
+      <li><a routerLink="/events" routerLinkActive="text-yellow-400"
+          class="text-white text-lg hover:text-yellow-400 px-3 py-2">Events</a></li>
+      <li><a routerLink="/contact" routerLinkActive="text-yellow-400"
+          class="text-white text-lg hover:text-yellow-400 px-3 py-2">Contact</a></li>
+    </ul>
+  </div>
+
 </nav>
