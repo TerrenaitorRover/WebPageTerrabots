@@ -6,6 +6,8 @@ import { AboutComponent } from './components/body/about/about.component';
 import { SponsorsComponent } from './components/body/sponsors/sponsors.component';
 import { EventsComponent } from './components/body/events/events.component';
 import { ContactComponent } from './components/body/contact/contact.component';
+import { PrivacyPolicyComponent } from './components/body/privacy-policy/privacy-policy.component';
+import { TermsConditionsComponent } from './components/body/terms-conditions/terms-conditions.component';
 
 
 export const routes: Routes = [
@@ -16,5 +18,7 @@ export const routes: Routes = [
     { path: 'team', component: TeamComponent},
     { path: 'sponsors', component: SponsorsComponent},
     { path: 'events', component: EventsComponent},
-    { path: 'contact', component: ContactComponent}
+    { path: 'contact', component: ContactComponent},
+    { path: 'privacypolicy', component: PrivacyPolicyComponent},
+    { path: 'termsConditions', component: TermsConditionsComponent}
 ];
