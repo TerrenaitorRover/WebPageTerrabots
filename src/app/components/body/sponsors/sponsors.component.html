@@ -1,23 +1,31 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="https://cdn.tailwindcss.com"></script>
   <title>Sponsors - TerrenaitorRover</title>
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: system-ui, sans-serif;
       background-color: #0e0e0e;
       color: #ffffff;
+      overflow-y: auto;
     }
+
     @keyframes fadeInUp {
       0% { opacity: 0; transform: translateY(20px); }
       100% { opacity: 1; transform: translateY(0); }
     }
+
     .fade-in-up {
       animation: fadeInUp 1s ease-out forwards;
     }
+
     .bg-diagonal-pattern {
       background-image:
         repeating-linear-gradient(135deg, #facc15 0, #facc15 2px, transparent 2px, transparent 20px),
@@ -26,6 +34,7 @@
       background-repeat: repeat, repeat;
       background-position: center center;
     }
+
     .bg-overlay {
       background-color: rgba(0, 0, 0, 0.9);
     }
@@ -33,57 +42,58 @@
 </head>
 <body>
 
-<section class="relative py-12 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 bg-diagonal-pattern">
+<section class="relative min-h-screen px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 bg-diagonal-pattern flex flex-col justify-start sm:justify-center items-center">
   <div class="absolute inset-0 z-0 bg-overlay"></div>
+
   <div class="max-w-5xl mx-auto text-center fade-in-up relative z-10">
+    <!-- Header -->
     <div class="mb-1">
-      <h2 class="text-4xl font-extrabold text-[#facc15] drop-shadow-lg leading-tight">Sponsors y Colaboradores</h2>
-      <h3 class="text-2xl font-bold text-white mt-0.5">Instituciones Académicas y Empresas</h3>
+      <h2 class="text-4xl font-extrabold text-[#facc15] drop-shadow-lg leading-tight">Sponsors & Partners</h2>
+      <h3 class="text-2xl font-bold text-white mt-0.5">Academic Institutions & Companies</h3>
     </div>
+
+    <!-- Description -->
     <p class="text-lg text-gray-200 mb-10 max-w-2xl mx-auto">
-      Agradecemos profundamente a las instituciones académicas y empresas que creen en la innovación, la tecnología y la formación de talento joven. Su apoyo hace posible el desarrollo del TerrenaitorRover.
+      We are deeply grateful to the academic institutions and companies that believe in innovation, technology, and the development of young talent. Their support makes the TerrenaitorRover project possible.
     </p>
 
-    <!-- Instituciones Académicas -->
+    <!-- Academic Institutions -->
     <div class="mb-16 fade-in-up">
-      <h3 class="text-3xl font-bold text-white mb-6">Instituciones Académicas</h3>
+      <h3 class="text-3xl font-bold text-white mb-6">Academic Institutions</h3>
       <div class="flex justify-center">
         <div class="bg-black/90 backdrop-blur-md rounded-2xl p-6 shadow-lg max-w-sm transform hover:scale-105 transition duration-300">
-          <img src="/assets/uni-logo.png" alt="Universidad Nacional de Ingeniería" class="h-24 object-contain mx-auto">
+          <img src="/assets/uni-logo.png" alt="Logo of Universidad Nacional de Ingeniería (UNI)" loading="lazy" class="h-24 object-contain mx-auto">
           <p class="text-lg text-[#facc15] mt-4 font-semibold">Universidad Nacional de Ingeniería (UNI)</p>
-          <p class="text-sm text-gray-300 mt-2">Líder en educación e investigación en ingeniería en Perú. Cuna del proyecto TerrenaitorRover.</p>
+          <p class="text-sm text-gray-300 mt-2">A leading institution in engineering education and research in Peru. Birthplace of the TerrenaitorRover project.</p>
         </div>
       </div>
     </div>
 
-    <!-- Empresas colaboradoras -->
+    <!-- Partner Companies (comentado) -->
+    <!--
     <div class="fade-in-up">
-      <h3 class="text-3xl font-bold text-white mb-6">Empresas Colaboradoras</h3>
+      <h3 class="text-3xl font-bold text-white mb-6">Partner Companies</h3>
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-
-        <!-- Empresa 1 -->
         <div class="bg-black/90 backdrop-blur-md rounded-2xl p-5 shadow-lg transform hover:scale-105 transition duration-300">
-          <img src="/assets/sponsor1.png" alt="Sponsor 1" class="h-14 object-contain mx-auto">
+          <img src="/assets/sponsor1.png" alt="Logo of TechLab Robotics" loading="lazy" class="h-14 object-contain mx-auto">
           <p class="text-base text-[#facc15] mt-4 font-semibold">TechLab Robotics</p>
-          <p class="text-sm text-gray-300 mt-2">Especialistas en sensores y hardware para robótica educativa.</p>
+          <p class="text-sm text-gray-300 mt-2">Experts in sensors and hardware for educational robotics.</p>
         </div>
 
-        <!-- Empresa 2 -->
         <div class="bg-black/90 backdrop-blur-md rounded-2xl p-5 shadow-lg transform hover:scale-105 transition duration-300">
-          <img src="/assets/sponsor2.png" alt="Sponsor 2" class="h-14 object-contain mx-auto">
+          <img src="/assets/sponsor2.png" alt="Logo of InnovaElectronics" loading="lazy" class="h-14 object-contain mx-auto">
           <p class="text-base text-[#facc15] mt-4 font-semibold">InnovaElectronics</p>
-          <p class="text-sm text-gray-300 mt-2">Proveedores de soluciones electrónicas avanzadas para prototipos.</p>
+          <p class="text-sm text-gray-300 mt-2">Suppliers of advanced electronic solutions for prototyping.</p>
         </div>
 
-        <!-- Empresa 3 -->
         <div class="bg-black/90 backdrop-blur-md rounded-2xl p-5 shadow-lg transform hover:scale-105 transition duration-300">
-          <img src="/assets/sponsor3.png" alt="Sponsor 3" class="h-14 object-contain mx-auto">
+          <img src="/assets/sponsor3.png" alt="Logo of GeoData Systems" loading="lazy" class="h-14 object-contain mx-auto">
           <p class="text-base text-[#facc15] mt-4 font-semibold">GeoData Systems</p>
-          <p class="text-sm text-gray-300 mt-2">Colaboradores en sistemas de posicionamiento y análisis geoespacial.</p>
+          <p class="text-sm text-gray-300 mt-2">Partners in geospatial analysis and positioning systems.</p>
         </div>
-
       </div>
     </div>
+    -->
   </div>
 </section>
 

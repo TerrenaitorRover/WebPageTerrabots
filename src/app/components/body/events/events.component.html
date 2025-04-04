@@ -1,85 +1,97 @@
-<section id="events" class="relative py-20 px-4 sm:px-6 md:px-10 lg:px-12 xl:px-16 bg-[#0e0e0e] overflow-hidden">
-    <!-- Fondo con logo repetido y opacidad reducida -->
+<main>
+  <section id="events" class="relative py-20 px-4 sm:px-6 md:px-10 lg:px-12 xl:px-16 bg-[#0e0e0e] overflow-hidden">
+    <!-- Background with repeated logo and reduced opacity -->
     <div class="absolute inset-0 bg-[url('/assets/fondo-event.png')] bg-repeat opacity-10 pointer-events-none"></div>
-  
+
     <div class="max-w-5xl mx-auto text-center relative z-10">
-      <h2 class="text-5xl font-extrabold text-[#facc15] drop-shadow-lg mb-1 animate-fadeInUp">Eventos</h2>
+
+      <!-- Título principal -->
+      <h2 class="text-5xl font-extrabold text-[#facc15] drop-shadow-lg mb-1 animate-fadeInUp">Events</h2>
       <h3 class="text-3xl font-semibold text-white mb-6 animate-fadeInUp">European Rover Challenge 2025</h3>
-  
-      <p class="text-gray-300 max-w-2xl mx-auto mb-10 animate-fadeInUp">
-        TerrenaitorRover ha sido seleccionado para participar en el <span class="text-[#facc15] font-medium">European Rover Challenge 2025 (ERC)</span>,
-        una de las competencias internacionales más prestigiosas de exploración robótica terrestre.
-      </p>
-  
-      <div class="bg-black/90 backdrop-blur-md rounded-2xl shadow-lg p-8 flex flex-col items-center gap-4 max-w-3xl mx-auto border border-[#facc15]/30 animate-fadeInUp">
+
+      <!-- Descripción del evento -->
+      <article class="animate-fadeInUp">
+        <p class="text-gray-300 max-w-2xl mx-auto mb-10">
+          TerrenaitorRover is going to participate in the
+          <span class="text-[#facc15] font-medium">European Rover Challenge 2025 (ERC)</span>,
+          one of the most prestigious international competitions in terrestrial robotic exploration.
+        </p>
+      </article>
+
+      <!-- Tarjeta de detalles del evento -->
+      <article class="bg-black/90 backdrop-blur-md rounded-2xl shadow-lg p-8 flex flex-col items-center gap-4 max-w-3xl mx-auto border border-[#facc15]/30 animate-fadeInUp">
         <div class="bg-white p-3 rounded shadow-md">
-          <img src="/assets/erc-logo.png" alt="European Rover Challenge" class="h-20 object-contain" />
+          <img src="/assets/erc-logo.png" alt="European Rover Challenge" loading="lazy" class="h-20 object-contain" />
         </div>
         <p class="text-lg text-gray-200">
-          <strong class="text-[#facc15]">¿Qué es el ERC?</strong><br>
-          El <strong>European Rover Challenge (ERC)</strong> es una competición internacional de robótica espacial que pone a prueba a equipos universitarios en
-          entornos simulados tipo Marte. Los desafíos incluyen navegación autónoma, manipulación de objetos, análisis de terreno y toma de decisiones mediante IA.
+          <strong class="text-[#facc15]">What is the ERC?</strong><br>
+          The <strong>European Rover Challenge (ERC)</strong> is an international space robotics competition that challenges university teams in
+          Mars-like simulated environments. Tasks include autonomous navigation, object manipulation, terrain analysis, and AI-based decision-making.
         </p>
         <p class="text-lg text-gray-200">
-          <strong class="text-[#facc15]">Desafío:</strong> realizar misiones simuladas en entornos tipo Marte, utilizando un rover autónomo.
+          <strong class="text-[#facc15]">Challenge:</strong> carry out simulated missions in Mars-like environments using an autonomous rover.
         </p>
         <p class="text-lg text-gray-200">
-          <strong class="text-[#facc15]">Ubicación:</strong> Kielce, Polonia
+          <strong class="text-[#facc15]">Location:</strong> Kielce, Poland
         </p>
-  
+
         <p class="text-gray-400 text-sm mt-4">
-          Conoce las reglas completas del evento en el
-          <a href="https://github.com/husarion/erc2025/blob/main/RULES.md" target="_blank" class="text-yellow-400 font-semibold hover:underline">sitio oficial del ERC 2025</a>.
+          Read the complete event rules on the
+          <a href="https://github.com/husarion/erc2025/blob/main/RULES.md" target="_blank" rel="noopener noreferrer" class="text-yellow-400 font-semibold hover:underline">official ERC 2025 website</a>.
         </p>
-      </div>
-  
-      <!-- Línea de tiempo con flecha horizontal con cabeza -->
-      <strong class="text-[#facc15] block text-5xl mt-16 mb-6 animate-fadeInUp">Fechas clave:</strong>
-      <div class="mt-4 relative max-w-6xl mx-auto animate-fadeInUp">
-        <div class="flex items-end justify-between gap-4 relative pl-20 pr-20">
-          <!-- Línea principal -->
-          <div class="absolute top-1/2 left-24 right-6 h-1 bg-gradient-to-r from-yellow-400 to-yellow-300 z-0 transform -translate-y-1/2"></div>
-          <!-- Cabeza de flecha -->
-          <div class="absolute top-1/2 -translate-y-1/2 right-0 w-0 h-0 border-t-[16px] border-t-transparent border-l-[32px] border-l-[#facc15] border-b-[16px] border-b-transparent z-10"></div>
-  
-          <!-- Punto 1 -->
-          <div class="relative z-10 flex flex-col items-center text-center group transition duration-500 hover:-translate-y-2 hover:drop-shadow-[0_0_10px_#facc15]">
-            <p class="text-white font-semibold text-base leading-tight">Registro</p>
-            <div class="w-0.5 h-3 bg-[#facc15] my-1"></div>
-            <p class="text-sm text-gray-400 leading-tight">20 feb - 20 mar</p>
-          </div>
-  
-          <!-- Punto 2 -->
-          <div class="relative z-10 flex flex-col items-center text-center group transition duration-500 hover:-translate-y-2 hover:drop-shadow-[0_0_10px_#facc15]">
-            <p class="text-white font-semibold text-base leading-tight">Reportes</p>
-            <div class="w-0.5 h-3 bg-[#facc15] my-1"></div>
-            <p class="text-sm text-gray-400 leading-tight">Hasta el 10 mayo</p>
-          </div>
-  
-          <!-- Punto 3 -->
-          <div class="relative z-10 flex flex-col items-center text-center group transition duration-500 hover:-translate-y-2 hover:drop-shadow-[0_0_10px_#facc15]">
-            <p class="text-white font-semibold text-base leading-tight">Evaluación</p>
-            <div class="w-0.5 h-3 bg-[#facc15] my-1"></div>
-            <p class="text-sm text-gray-400 leading-tight">Junio 2025</p>
-          </div>
-  
-          <!-- Punto 4 -->
-          <div class="relative z-10 flex flex-col items-center text-center group transition duration-500 hover:-translate-y-2 hover:drop-shadow-[0_0_10px_#facc15]">
-            <p class="text-white font-semibold text-base leading-tight">Competencia</p>
-            <div class="w-0.5 h-3 bg-[#facc15] my-1"></div>
-            <p class="text-sm text-gray-400 leading-tight">12 al 14 sep</p>
+      </article>
+
+      <!-- Línea de tiempo -->
+      <article class="mt-16 animate-fadeInUp">
+        <strong class="text-[#facc15] block text-5xl mb-6">Key Dates:</strong>
+        <div class="mt-4 relative max-w-6xl mx-auto">
+          <div class="flex items-end justify-between gap-4 relative pl-20 pr-20">
+            <!-- Línea principal -->
+            <div class="absolute top-1/2 left-24 right-6 h-1 bg-gradient-to-r from-yellow-400 to-yellow-300 z-0 transform -translate-y-1/2"></div>
+            <!-- Cabeza de flecha -->
+            <div class="absolute top-1/2 -translate-y-1/2 right-0 w-0 h-0 border-t-[16px] border-t-transparent border-l-[32px] border-l-[#facc15] border-b-[16px] border-b-transparent z-10"></div>
+
+            <!-- Punto 1 -->
+            <div class="relative z-10 flex flex-col items-center text-center group transition duration-500 hover:-translate-y-2 hover:drop-shadow-[0_0_10px_#facc15]">
+              <p class="text-white font-semibold text-base leading-tight">Registration</p>
+              <div class="w-0.5 h-3 bg-[#facc15] my-1"></div>
+              <p class="text-sm text-gray-400 leading-tight">Feb 20 - Mar 20</p>
+            </div>
+
+            <!-- Punto 2 -->
+            <div class="relative z-10 flex flex-col items-center text-center group transition duration-500 hover:-translate-y-2 hover:drop-shadow-[0_0_10px_#facc15]">
+              <p class="text-white font-semibold text-base leading-tight">Reports</p>
+              <div class="w-0.5 h-3 bg-[#facc15] my-1"></div>
+              <p class="text-sm text-gray-400 leading-tight">Until May 10</p>
+            </div>
+
+            <!-- Punto 3 -->
+            <div class="relative z-10 flex flex-col items-center text-center group transition duration-500 hover:-translate-y-2 hover:drop-shadow-[0_0_10px_#facc15]">
+              <p class="text-white font-semibold text-base leading-tight">Evaluation</p>
+              <div class="w-0.5 h-3 bg-[#facc15] my-1"></div>
+              <p class="text-sm text-gray-400 leading-tight">June 2025</p>
+            </div>
+
+            <!-- Punto 4 -->
+            <div class="relative z-10 flex flex-col items-center text-center group transition duration-500 hover:-translate-y-2 hover:drop-shadow-[0_0_10px_#facc15]">
+              <p class="text-white font-semibold text-base leading-tight">Competition</p>
+              <div class="w-0.5 h-3 bg-[#facc15] my-1"></div>
+              <p class="text-sm text-gray-400 leading-tight">Sept 12 - 14</p>
+            </div>
           </div>
         </div>
-      </div>
+      </article>
+
     </div>
   </section>
-  
-  <style>
-    @keyframes fadeInUp {
-      0% { opacity: 0; transform: translateY(40px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-    .animate-fadeInUp {
-      animation: fadeInUp 0.8s ease-out forwards;
-    }
-  </style>
+</main>
+
+<style>
+  @keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(40px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fadeInUp {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+</style>
