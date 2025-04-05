@@ -19,17 +19,21 @@
       </article>
 
       <!-- Tarjeta de detalles del evento -->
-      <article class="bg-black/90 backdrop-blur-md rounded-2xl shadow-lg p-8 flex flex-col items-center gap-4 max-w-3xl mx-auto border border-[#facc15]/30 animate-fadeInUp">
+      <article
+        class="bg-black/90 backdrop-blur-md rounded-2xl shadow-lg p-8 flex flex-col items-center gap-4 max-w-3xl mx-auto border border-[#facc15]/30 animate-fadeInUp">
         <div class="bg-white p-3 rounded shadow-md">
           <img src="/assets/erc-logo.png" alt="European Rover Challenge" loading="lazy" class="h-20 object-contain" />
         </div>
         <p class="text-lg text-gray-200">
           <strong class="text-[#facc15]">What is the ERC?</strong><br>
-          The <strong>European Rover Challenge (ERC)</strong> is an international space robotics competition that challenges university teams in
-          Mars-like simulated environments. Tasks include autonomous navigation, object manipulation, terrain analysis, and AI-based decision-making.
+          The <strong>European Rover Challenge (ERC)</strong> is an international space robotics competition that
+          challenges university teams in
+          Mars-like simulated environments. Tasks include autonomous navigation, object manipulation, terrain analysis,
+          and AI-based decision-making.
         </p>
         <p class="text-lg text-gray-200">
-          <strong class="text-[#facc15]">Challenge:</strong> carry out simulated missions in Mars-like environments using an autonomous rover.
+          <strong class="text-[#facc15]">Challenge:</strong> carry out simulated missions in Mars-like environments
+          using an autonomous rover.
         </p>
         <p class="text-lg text-gray-200">
           <strong class="text-[#facc15]">Location:</strong> Kielce, Poland
@@ -37,50 +41,67 @@
 
         <p class="text-gray-400 text-sm mt-4">
           Read the complete event rules on the
-          <a href="https://github.com/husarion/erc2025/blob/main/RULES.md" target="_blank" rel="noopener noreferrer" class="text-yellow-400 font-semibold hover:underline">official ERC 2025 website</a>.
+          <a href="https://github.com/husarion/erc2025/blob/main/RULES.md" target="_blank" rel="noopener noreferrer"
+            class="text-yellow-400 font-semibold hover:underline">official ERC 2025 website</a>.
         </p>
       </article>
 
       <!-- Línea de tiempo -->
       <article class="mt-16 animate-fadeInUp">
-        <strong class="text-[#facc15] block text-5xl mb-6">Key Dates:</strong>
-        <div class="mt-4 relative max-w-6xl mx-auto">
-          <div class="flex items-end justify-between gap-4 relative pl-20 pr-20">
-            <!-- Línea principal -->
-            <div class="absolute top-1/2 left-24 right-6 h-1 bg-gradient-to-r from-yellow-400 to-yellow-300 z-0 transform -translate-y-1/2"></div>
-            <!-- Cabeza de flecha -->
-            <div class="absolute top-1/2 -translate-y-1/2 right-0 w-0 h-0 border-t-[16px] border-t-transparent border-l-[32px] border-l-[#facc15] border-b-[16px] border-b-transparent z-10"></div>
-
-            <!-- Punto 1 -->
-            <div class="relative z-10 flex flex-col items-center text-center group transition duration-500 hover:-translate-y-2 hover:drop-shadow-[0_0_10px_#facc15]">
-              <p class="text-white font-semibold text-base leading-tight">Registration</p>
-              <div class="w-0.5 h-3 bg-[#facc15] my-1"></div>
-              <p class="text-sm text-gray-400 leading-tight">Feb 20 - Mar 20</p>
+        <strong class="text-[#facc15] block text-3xl mb-10 text-center">Key Dates:</strong>
+      
+        <div class="relative mx-auto pl-10 max-w-md">
+          <!-- Línea punteada dorada -->
+          <div class="absolute left-4 top-0 h-full border-l-2 border-dashed border-yellow-400/50"></div>
+      
+          <!-- Evento 1 -->
+          <div class="relative flex items-start gap-4 mb-8 max-w-sm">
+            <div class="relative z-10 w-8 h-8 flex items-center justify-center rounded-full bg-yellow-400 text-black shadow-md text-lg">
+              📌
             </div>
-
-            <!-- Punto 2 -->
-            <div class="relative z-10 flex flex-col items-center text-center group transition duration-500 hover:-translate-y-2 hover:drop-shadow-[0_0_10px_#facc15]">
-              <p class="text-white font-semibold text-base leading-tight">Reports</p>
-              <div class="w-0.5 h-3 bg-[#facc15] my-1"></div>
-              <p class="text-sm text-gray-400 leading-tight">Until May 10</p>
+            <div class="bg-black/70 backdrop-blur-sm border border-yellow-400/20 rounded-xl px-4 py-3 w-full shadow-lg hover:shadow-yellow-500/30 transition">
+              <p class="text-white font-semibold text-base">Registration</p>
+              <p class="text-sm text-gray-400">Feb 20 – Mar 20</p>
             </div>
-
-            <!-- Punto 3 -->
-            <div class="relative z-10 flex flex-col items-center text-center group transition duration-500 hover:-translate-y-2 hover:drop-shadow-[0_0_10px_#facc15]">
-              <p class="text-white font-semibold text-base leading-tight">Evaluation</p>
-              <div class="w-0.5 h-3 bg-[#facc15] my-1"></div>
-              <p class="text-sm text-gray-400 leading-tight">June 2025</p>
+          </div>
+      
+          <!-- Evento 2 -->
+          <div class="relative flex items-start gap-4 mb-8 max-w-sm">
+            <div class="relative z-10 w-8 h-8 flex items-center justify-center rounded-full bg-yellow-400 text-black shadow-md text-lg">
+              📝
             </div>
-
-            <!-- Punto 4 -->
-            <div class="relative z-10 flex flex-col items-center text-center group transition duration-500 hover:-translate-y-2 hover:drop-shadow-[0_0_10px_#facc15]">
-              <p class="text-white font-semibold text-base leading-tight">Competition</p>
-              <div class="w-0.5 h-3 bg-[#facc15] my-1"></div>
-              <p class="text-sm text-gray-400 leading-tight">Sept 12 - 14</p>
+            <div class="bg-black/70 backdrop-blur-sm border border-yellow-400/20 rounded-xl px-4 py-3 w-full shadow-lg hover:shadow-yellow-500/30 transition">
+              <p class="text-white font-semibold text-base">Reports</p>
+              <p class="text-sm text-gray-400">Until May 10</p>
+            </div>
+          </div>
+      
+          <!-- Evento 3 -->
+          <div class="relative flex items-start gap-4 mb-8 max-w-sm">
+            <div class="relative z-10 w-8 h-8 flex items-center justify-center rounded-full bg-yellow-400 text-black shadow-md text-lg">
+              🔍
+            </div>
+            <div class="bg-black/70 backdrop-blur-sm border border-yellow-400/20 rounded-xl px-4 py-3 w-full shadow-lg hover:shadow-yellow-500/30 transition">
+              <p class="text-white font-semibold text-base">Evaluation</p>
+              <p class="text-sm text-gray-400">June 2025</p>
+            </div>
+          </div>
+      
+          <!-- Evento 4 -->
+          <div class="relative flex items-start gap-4 max-w-sm">
+            <div class="relative z-10 w-8 h-8 flex items-center justify-center rounded-full bg-yellow-400 text-black shadow-md text-lg">
+              🏁
+            </div>
+            <div class="bg-black/70 backdrop-blur-sm border border-yellow-400/20 rounded-xl px-4 py-3 w-full shadow-lg hover:shadow-yellow-500/30 transition">
+              <p class="text-white font-semibold text-base">Competition</p>
+              <p class="text-sm text-gray-400">Sept 12 – 14</p>
             </div>
           </div>
         </div>
       </article>
+      
+      
+      
 
     </div>
   </section>
@@ -88,9 +109,17 @@
 
 <style>
   @keyframes fadeInUp {
-    0% { opacity: 0; transform: translateY(40px); }
-    100% { opacity: 1; transform: translateY(0); }
+    0% {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
+
   .animate-fadeInUp {
     animation: fadeInUp 0.8s ease-out forwards;
   }

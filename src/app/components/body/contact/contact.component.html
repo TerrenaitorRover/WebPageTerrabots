@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,102 +14,111 @@
     }
   </style>
 </head>
+
 <body>
 
-<section class="bg-black py-20 px-4 sm:px-6 md:px-10 lg:px-12 xl:px-16 relative overflow-hidden">
-  <!-- Logo background with transparency -->
-  <div class="absolute inset-0 bg-[url('/assets/logo.png')] bg-no-repeat bg-center bg-contain opacity-10 pointer-events-none"></div>
+  <section class="bg-black py-20 px-4 sm:px-6 md:px-10 lg:px-12 xl:px-16 relative overflow-hidden">
+    <!-- Logo background with transparency -->
+    <div
+      class="absolute inset-0 bg-[url('/assets/logo.png')] bg-no-repeat bg-center bg-contain opacity-10 pointer-events-none">
+    </div>
 
-  <!-- Main content above background -->
-  <div class="max-w-4xl mx-auto relative z-10">
-    <h2 class="mb-4 text-5xl font-extrabold text-center text-[#facc15] drop-shadow-lg">
-      Contact Us
-    </h2>
-    <p class="mb-10 text-lg text-center text-gray-300">
-      Got a technical issue, suggestions, or want to collaborate with us? Write to us!
-    </p>
+    <!-- Main content above background -->
+    <div class="max-w-4xl mx-auto relative z-10">
+      <h2 class="mb-4 text-5xl font-extrabold text-center text-[#facc15] drop-shadow-lg">
+        Contact Us
+      </h2>
+      <p class="mb-10 text-lg text-center text-gray-300">
+        Got a technical issue, suggestions, or want to collaborate with us? Write to us!
+      </p>
 
-    <form [formGroup]="emailForm" (ngSubmit)="sendEmail()" class="space-y-6">
-      <!-- Email -->
-      <div>
-        <label for="email" class="block mb-2 text-base font-medium text-white">Your Email</label>
-        <input type="email" id="email" formControlName="to" placeholder="name@example.com" class="w-full text-lg text-white bg-black border-2 border-white rounded-lg 
+      <form [formGroup]="emailForm" (ngSubmit)="sendEmail()" class="space-y-6">
+        <!-- Email -->
+        <div>
+          <label for="email" class="block mb-2 text-base font-medium text-white">Your Email</label>
+          <input type="email" id="email" formControlName="to" placeholder="name@example.com" class="w-full text-lg text-white bg-black border-2 border-white rounded-lg 
                  focus:border-yellow-400 focus:ring-yellow-400 focus:outline-none 
                  placeholder-gray-500 py-3 px-4 transition-all duration-300" required />
-      </div>
+        </div>
 
-      <!-- Subject -->
-      <div>
-        <label for="subject" class="block mb-2 text-base font-medium text-white">Subject</label>
-        <input type="text" id="subject" formControlName="subject" placeholder="Let us know how we can help" class="w-full text-lg text-white bg-black border-2 border-white rounded-lg 
+        <!-- Subject -->
+        <div>
+          <label for="subject" class="block mb-2 text-base font-medium text-white">Subject</label>
+          <input type="text" id="subject" formControlName="subject" placeholder="Let us know how we can help" class="w-full text-lg text-white bg-black border-2 border-white rounded-lg 
                  focus:border-yellow-400 focus:ring-yellow-400 focus:outline-none 
                  placeholder-gray-500 py-3 px-4 transition-all duration-300" required />
-      </div>
+        </div>
 
-      <!-- Message -->
-      <div>
-        <label for="message" class="block mb-2 text-base font-medium text-white">Your Message</label>
-        <textarea id="message" formControlName="message" rows="6" placeholder="Write your message here" class="w-full text-lg text-white bg-black border-2 border-white rounded-lg 
+        <!-- Message -->
+        <div>
+          <label for="message" class="block mb-2 text-base font-medium text-white">Your Message</label>
+          <textarea id="message" formControlName="message" rows="6" placeholder="Write your message here" class="w-full text-lg text-white bg-black border-2 border-white rounded-lg 
                  focus:border-yellow-400 focus:ring-yellow-400 focus:outline-none 
                  placeholder-gray-500 py-3 px-4 transition-all duration-300" required></textarea>
-      </div>
+        </div>
 
-      <!-- Button -->
-      <div class="text-center">
-        <button type="submit" [disabled]="emailForm.invalid || isLoading" class="py-3 px-8 text-lg font-semibold bg-gradient-to-br from-[#eab308] via-[#ca8a04] to-[#a16207] text-white rounded-lg shadow-lg
+        <!-- Button -->
+        <div class="text-center">
+          <button type="submit" [disabled]="emailForm.invalid || isLoading" class="py-3 px-8 text-lg font-semibold bg-gradient-to-br from-[#eab308] via-[#ca8a04] to-[#a16207] text-white rounded-lg shadow-lg
         hover:opacity-90 transition duration-300">
-          {{ isLoading ? 'Sending...' : 'Send Message' }}
-        </button>
-      </div>
-    </form>
+            {{ isLoading ? 'Sending...' : 'Send Message' }}
+          </button>
+        </div>
+      </form>
 
-    <!-- ✅ Success/Error Message -->
-    <p *ngIf="message" class="text-center mt-6 text-yellow-400 text-lg font-medium">
-      {{ message }}
-    </p>
+      <!-- ✅ Success/Error Message -->
+      <p *ngIf="message" class="text-center mt-6 text-yellow-400 text-lg font-medium">
+        {{ message }}
+      </p>
 
-    <!-- Social Icons -->
-    <div class="flex justify-center gap-6 mt-14 flex-wrap">
+      <!-- Social Icons -->
+      <div class="flex justify-center gap-6 mt-14 flex-wrap">
 
-      <!-- GitHub -->
-      <a href="https://github.com/TerrenaitorRover" aria-label="GitHub" class="text-white hover:text-yellow-400 transition duration-300 flex flex-col items-center">
-        <svg class="w-10 h-10 mb-1" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.04c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.74.08-.74 1.2.09 1.84 1.24 1.84 1.24 1.07 1.84 2.8 1.31 3.49 1 .11-.78.42-1.31.76-1.61-2.66-.3-5.47-1.34-5.47-5.93 0-1.31.47-2.38 1.23-3.22-.13-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.3-1.55 3.3-1.23 3.3-1.23.65 1.66.24 2.88.12 3.18.76.84 1.23 1.91 1.23 3.22 0 4.6-2.81 5.62-5.49 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.21.69.83.58A12 12 0 0 0 24 12c0-6.63-5.37-12-12-12Z" />
-        </svg>GitHub
-      </a>
-    
-      <!-- LinkedIn -->
-      <a href="https://www.linkedin.com/company/terrabots-ras-uni/" aria-label="LinkedIn" class="text-white hover:text-yellow-400 transition duration-300 flex flex-col items-center">
-        <svg class="w-10 h-10 mb-1" fill="currentColor" viewBox="0 0 448 512">
-          <path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 
+        <!-- GitHub -->
+        <a href="https://github.com/TerrenaitorRover" aria-label="GitHub"
+          class="text-white hover:text-yellow-400 transition duration-300 flex flex-col items-center">
+          <svg class="w-10 h-10 mb-1" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.04c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.74.08-.74 1.2.09 1.84 1.24 1.84 1.24 1.07 1.84 2.8 1.31 3.49 1 .11-.78.42-1.31.76-1.61-2.66-.3-5.47-1.34-5.47-5.93 0-1.31.47-2.38 1.23-3.22-.13-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.3-1.55 3.3-1.23 3.3-1.23.65 1.66.24 2.88.12 3.18.76.84 1.23 1.91 1.23 3.22 0 4.6-2.81 5.62-5.49 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.21.69.83.58A12 12 0 0 0 24 12c0-6.63-5.37-12-12-12Z" />
+          </svg>GitHub
+        </a>
+
+        <!-- LinkedIn -->
+        <a href="https://www.linkedin.com/company/terrabots-ras-uni/" aria-label="LinkedIn"
+          class="text-white hover:text-yellow-400 transition duration-300 flex flex-col items-center">
+          <svg class="w-10 h-10 mb-1" fill="currentColor" viewBox="0 0 448 512">
+            <path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 
             108.1 0 83.49 0 53.79 0 24.09 24.09 0 53.79 0 
             s53.79 24.09 53.79 53.79c0 29.7-24.09 54.31-53.79 
             54.31zM447.9 448h-92.4V302.4c0-34.7-.7-79.2-48.3-79.2 
             -48.3 0-55.7 37.7-55.7 76.7V448h-92.6V148.9h88.9v40.8 
             h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 
             111.3 61.9 111.3 142.3V448z" />
-        </svg>LinkedIn
-      </a>
-    
-      <!-- Instagram -->
-      <a href="https://www.instagram.com/terranaitor_uni?igsh=MWFrcjVibWkyb254" aria-label="Instagram" class="text-white hover:text-yellow-400 transition duration-300 flex flex-col items-center">
-        <svg class="w-10 h-10 mb-1" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm0 2h10c1.65 0 3 1.35 3 3v10c0 1.65-1.35 3-3 3H7c-1.65 0-3-1.35-3-3V7c0-1.65 1.35-3 3-3zm5 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm4.5-.75a1.25 1.25 0 11-2.5 0 1.25 1.25 0 012.5 0z"/>
-        </svg>Instagram
-      </a>
-    
-      <!-- Facebook -->
-      <a href="https://www.facebook.com/share/1Dxt4x2MVu/" aria-label="Facebook" class="text-white hover:text-yellow-400 transition duration-300 flex flex-col items-center">
-        <svg class="w-10 h-10 mb-1" fill="currentColor" viewBox="0 0 320 512">
-          <path d="M279.14 288l14.22-92.66h-88.91v-60.13 
+          </svg>LinkedIn
+        </a>
+
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/terranaitor_uni?igsh=MWFrcjVibWkyb254" aria-label="Instagram"
+          class="text-white hover:text-yellow-400 transition duration-300 flex flex-col items-center">
+          <svg class="w-10 h-10 mb-1" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm0 2h10c1.65 0 3 1.35 3 3v10c0 1.65-1.35 3-3 3H7c-1.65 0-3-1.35-3-3V7c0-1.65 1.35-3 3-3zm5 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm4.5-.75a1.25 1.25 0 11-2.5 0 1.25 1.25 0 012.5 0z" />
+          </svg>Instagram
+        </a>
+
+        <!-- Facebook -->
+        <a href="https://www.facebook.com/share/1Dxt4x2MVu/" aria-label="Facebook"
+          class="text-white hover:text-yellow-400 transition duration-300 flex flex-col items-center">
+          <svg class="w-10 h-10 mb-1" fill="currentColor" viewBox="0 0 320 512">
+            <path d="M279.14 288l14.22-92.66h-88.91v-60.13 
             c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S259.88 
             0 225.36 0c-73.14 0-121.09 44.38-121.09 
-            124.72v70.62H22.89V288h81.38v224h100.2V288z"/>
-        </svg>Facebook
-      </a>
-    
-      <!-- Telegram -->
-      <!--<a href="#" aria-label="Telegram" class="text-white hover:text-yellow-400 transition duration-300 flex flex-col items-center">
+            124.72v70.62H22.89V288h81.38v224h100.2V288z" />
+          </svg>Facebook
+        </a>
+
+        <!-- Telegram -->
+        <!--<a href="#" aria-label="Telegram" class="text-white hover:text-yellow-400 transition duration-300 flex flex-col items-center">
         <svg class="w-10 h-10 mb-1" fill="currentColor" viewBox="0 0 496 512">
           <path d="M248 8C111 8 0 119 0 256s111 248 
             248 248 248-111 248-248S385 8 248 8zm113.1 
@@ -120,11 +130,30 @@
             18.9 2.5 15 18.5z"/>
         </svg>Telegram
       </a> -->
-    
-      <!-- WhatsApp -->
-      <a href="https://wa.me/51966534595?text=Hola%20Terrabots%2C%20me%20gustaría%20saber%20más%20sobre%20el%20proyecto" aria-label="WhatsApp" class="text-white hover:text-yellow-400 transition duration-300 flex flex-col items-center">
-        <svg class="w-10 h-10 mb-1" fill="currentColor" viewBox="0 0 448 512">
-          <path d="M380.9 97.1C339 55.1 283.1 32 224 32 
+
+        <!-- YouTube -->
+        <a href="https://www.youtube.com/@Terrabots" aria-label="YouTube"
+          class="text-white hover:text-yellow-400 transition duration-300 flex flex-col items-center" target="_blank">
+          <svg class="w-10 h-10 mb-1" fill="currentColor" viewBox="0 0 576 512">
+            <path d="M549.655 124.083c-6.281-23.65-24.813-42.183-48.465-48.465C456.27 64 288 64 288 
+             64s-168.27 0-213.19 11.618c-23.65 6.281-42.183 24.813-48.465 
+             48.465C16.727 168.97 16.727 256 16.727 
+             256s0 87.03 9.618 131.917c6.281 23.65 24.813 42.183 48.465 
+             48.465C119.73 448 288 448 288 
+             448s168.27 0 213.19-11.618c23.65-6.281 42.183-24.813 
+             48.465-48.465C559.273 343.03 559.273 256 559.273 
+             256s0-87.03-9.618-131.917zM232.727 338.909V173.091L384 
+             256l-151.273 82.909z" />
+          </svg>
+          YouTube
+        </a>
+
+        <!-- WhatsApp -->
+        <a href="https://wa.me/51966534595?text=Hola%20Terrabots%2C%20me%20gustaría%20saber%20más%20sobre%20el%20proyecto"
+          aria-label="WhatsApp"
+          class="text-white hover:text-yellow-400 transition duration-300 flex flex-col items-center">
+          <svg class="w-10 h-10 mb-1" fill="currentColor" viewBox="0 0 448 512">
+            <path d="M380.9 97.1C339 55.1 283.1 32 224 32 
             100.3 32 0 132.3 0 256c0 45.2 11.9 89.1 
             34.5 127.5L0 480l100.5-33.3C139.1 
             470.9 180.9 480 224 480c123.7 
@@ -146,10 +175,10 @@
             13.9 10.7-1.6 32.8-13.4 
             37.4-26.4 4.6-13 4.6-24.1 
             3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
-        </svg>WhatsApp
-      </a>
-  
+          </svg>WhatsApp
+        </a>
+
+      </div>
+
     </div>
-    
-  </div>
-</section>
+  </section>
