@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
   <title>Contact - Terrabots</title>
@@ -16,6 +16,50 @@
 </head>
 
 <body>
+
+<div class="max-w-4xl mx-auto p-6">
+  <!-- Secci�n QR -->
+  <h2 class="text-3xl font-extrabold text-center mb-6 text-[#facc15]">Dona con QR</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <!-- Yape -->
+    <div class="p-6 rounded-2xl shadow-lg hover:shadow-2xl transition bg-gradient-to-br from-purple-100 via-white to-purple-50 border border-purple-200">
+      <h3 class="text-2xl font-bold text-purple-700 text-center mb-4">Yape</h3>
+      <img [src]="yapeQr" alt="QR Yape" class="w-64 h-64 mx-auto rounded-xl border-4 border-purple-300 shadow-md" (click)="openQr(yapeQr)">
+      <p class="text-center mt-4 font-semibold text-gray-800">Número: <span class="text-purple-700">{{ phone }}</span></p>
+      <button (click)="copy(phone)" class="mt-3 w-full px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 font-medium shadow">
+        Copiar número
+      </button>
+    </div>
+
+    <!-- Plin -->
+    <div class="p-6 rounded-2xl shadow-lg hover:shadow-2xl transition bg-gradient-to-br from-green-100 via-white to-green-50 border border-green-200">
+      <h3 class="text-2xl font-bold text-green-700 text-center mb-4">Plin</h3>
+      <img [src]="plinQr" alt="QR Plin" class="w-64 h-64 mx-auto rounded-xl border-4 border-green-300 shadow-md" (click)="openQr(plinQr)">
+      <p class="text-center mt-4 font-semibold text-gray-800">Número: <span class="text-green-700">{{ phone }}</span></p>
+      <button (click)="copy(phone)" class="mt-3 w-full px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 font-medium shadow">
+        Copiar número
+      </button>
+    </div>
+  </div>
+
+  <!-- Secciún Bancos -->
+  <h2 class="text-3xl font-extrabold text-center my-10 text-[#facc15]">Cuentas Bancarias</h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div *ngFor="let c of cuentas" 
+         class="p-6 rounded-2xl shadow-lg hover:shadow-2xl transition bg-gradient-to-br from-blue-50 via-white to-blue-100 border border-blue-200">
+      <h3 class="text-xl font-bold text-blue-700 mb-3">{{ c.banco }}</h3>
+      <p class="mb-2 font-medium text-gray-700">Cuenta: <span class="font-mono text-blue-900">{{ c.cuenta }}</span></p>
+      <button (click)="copy(c.cuenta)" class="mb-3 px-3 py-1 bg-blue-600 text-white rounded-lg hover:bg-blue-700 text-sm font-medium shadow">
+        Copiar Cuenta
+      </button>
+      <p class="mb-2 font-medium text-gray-700">CCI: <span class="font-mono text-indigo-900">{{ c.cci }}</span></p>
+      <button (click)="copy(c.cci)" class="px-3 py-1 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 text-sm font-medium shadow">
+        Copiar CCI
+      </button>
+    </div>
+  </div>
+</div>
+
 
   <section class="bg-black py-20 px-4 sm:px-6 md:px-10 lg:px-12 xl:px-16 relative overflow-hidden">
     <!-- Logo background with transparency -->

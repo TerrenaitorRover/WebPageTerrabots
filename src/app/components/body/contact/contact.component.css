@@ -1,0 +1,8 @@
+/* Estilos extras (lo principal lo maneja Tailwind) */
+img {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+img:hover {
+  transform: scale(1.08);
+}
