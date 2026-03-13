@@ -25,23 +25,20 @@
 
   <!-- Support Header -->
   <div class="text-center mb-10">
-    <h2 class="text-3xl md:text-4xl font-extrabold text-[#facc15] mb-4">Be Part of the Mission</h2>
-    <p class="text-gray-300 max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
-      Every contribution fuels innovation, empowers future engineers, and helps us build robotics technology made in Peru.
-      Your support keeps our mission moving forward.
-    </p>
+    <h2 class="text-3xl md:text-4xl font-extrabold text-[#facc15] mb-4">{{ 'CONTACT.SUPPORT_TITLE' | translate }}</h2>
+    <p class="text-gray-300 max-w-2xl mx-auto text-base md:text-lg leading-relaxed">{{ 'CONTACT.SUPPORT_DESC' | translate }}</p>
   </div>
 
   <!-- QR - Quick support -->
-  <h3 class="text-2xl font-bold text-center mb-6 text-white">Quick Support via Mobile</h3>
+  <h3 class="text-2xl font-bold text-center mb-6 text-white">{{ 'CONTACT.QR_TITLE' | translate }}</h3>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
     <!-- Yape -->
     <div class="p-6 rounded-2xl shadow-lg hover:shadow-2xl transition bg-gradient-to-br from-purple-100 via-white to-purple-50 border border-purple-200">
       <h4 class="text-2xl font-bold text-purple-700 text-center mb-4">Yape</h4>
       <img [src]="yapeQr" alt="QR Yape" class="w-64 h-64 mx-auto rounded-xl border-4 border-purple-300 shadow-md cursor-pointer" (click)="openQr(yapeQr)">
-      <p class="text-center mt-4 font-semibold text-gray-800">Phone: <span class="text-purple-700">{{ phone }}</span></p>
+      <p class="text-center mt-4 font-semibold text-gray-800">{{ 'CONTACT.PHONE_LABEL' | translate }}: <span class="text-purple-700">{{ phone }}</span></p>
       <button (click)="copy(phone)" class="mt-3 w-full px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 font-medium shadow">
-        Copy number
+        {{ 'CONTACT.COPY_NUMBER' | translate }}
       </button>
     </div>
 
@@ -49,29 +46,29 @@
     <div class="p-6 rounded-2xl shadow-lg hover:shadow-2xl transition bg-gradient-to-br from-green-100 via-white to-green-50 border border-green-200">
       <h4 class="text-2xl font-bold text-green-700 text-center mb-4">Plin</h4>
       <img [src]="plinQr" alt="QR Plin" class="w-64 h-64 mx-auto rounded-xl border-4 border-green-300 shadow-md cursor-pointer" (click)="openQr(plinQr)">
-      <p class="text-center mt-4 font-semibold text-gray-800">Phone: <span class="text-green-700">{{ phone }}</span></p>
+      <p class="text-center mt-4 font-semibold text-gray-800">{{ 'CONTACT.PHONE_LABEL' | translate }}: <span class="text-green-700">{{ phone }}</span></p>
       <button (click)="copy(phone)" class="mt-3 w-full px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 font-medium shadow">
-        Copy number
+        {{ 'CONTACT.COPY_NUMBER' | translate }}
       </button>
     </div>
   </div>
 
   <!-- Bank Transfer Section -->
   <div class="text-center my-10">
-    <h3 class="text-2xl font-bold text-white mb-2">Bank Transfer</h3>
-    <p class="text-gray-400 text-sm">If you prefer to support us via bank transfer, here are our account details.</p>
+    <h3 class="text-2xl font-bold text-white mb-2">{{ 'CONTACT.BANK_TITLE' | translate }}</h3>
+    <p class="text-gray-400 text-sm">{{ 'CONTACT.BANK_DESC' | translate }}</p>
   </div>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
     <div *ngFor="let c of cuentas"
          class="p-6 rounded-2xl shadow-lg hover:shadow-2xl transition bg-gradient-to-br from-blue-50 via-white to-blue-100 border border-blue-200">
       <h4 class="text-xl font-bold text-blue-700 mb-3">{{ c.banco }}</h4>
-      <p class="mb-2 font-medium text-gray-700">Account: <span class="font-mono text-blue-900">{{ c.cuenta }}</span></p>
+      <p class="mb-2 font-medium text-gray-700">{{ 'CONTACT.ACCOUNT_LABEL' | translate }}: <span class="font-mono text-blue-900">{{ c.cuenta }}</span></p>
       <button (click)="copy(c.cuenta)" class="mb-3 px-3 py-1 bg-blue-600 text-white rounded-lg hover:bg-blue-700 text-sm font-medium shadow">
-        Copy Account
+        {{ 'CONTACT.COPY_ACCOUNT' | translate }}
       </button>
       <p class="mb-2 font-medium text-gray-700">CCI: <span class="font-mono text-indigo-900">{{ c.cci }}</span></p>
       <button (click)="copy(c.cci)" class="px-3 py-1 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 text-sm font-medium shadow">
-        Copy CCI
+        {{ 'CONTACT.COPY_CCI' | translate }}
       </button>
     </div>
   </div>
@@ -86,39 +83,39 @@
   </div>
 
   <!-- Thank you message -->
-  <p class="text-center text-gray-500 text-sm mt-8 pb-10">Thank you for believing in Peruvian robotics and the talent of our students.</p>
+  <p class="text-center text-gray-500 text-sm mt-8 pb-10">{{ 'CONTACT.THANK_YOU' | translate }}</p>
 
   <section class="py-20 px-4 sm:px-6 md:px-10 lg:px-12 xl:px-16 relative overflow-hidden">
     <div class="max-w-4xl mx-auto relative z-10">
       <h2 class="mb-4 text-5xl font-extrabold text-center text-[#facc15] drop-shadow-lg">
-        Contact Us
+        {{ 'CONTACT.FORM_TITLE' | translate }}
       </h2>
       <p class="mb-10 text-lg text-center text-gray-300">
-        Got a technical issue, suggestions, or want to collaborate with us? Write to us!
+        {{ 'CONTACT.FORM_DESC' | translate }}
       </p>
 
       <form [formGroup]="emailForm" (ngSubmit)="sendEmail()" class="space-y-6">
         <!-- Email -->
         <div>
-          <label for="email" class="block mb-2 text-base font-medium text-white">Your Email</label>
-          <input type="email" id="email" formControlName="to" placeholder="name@example.com" class="w-full text-lg text-white bg-black border-2 border-white rounded-lg 
-                 focus:border-yellow-400 focus:ring-yellow-400 focus:outline-none 
+          <label for="email" class="block mb-2 text-base font-medium text-white">{{ 'CONTACT.LABEL_EMAIL' | translate }}</label>
+          <input type="email" id="email" formControlName="to" [placeholder]="'CONTACT.PLACEHOLDER_EMAIL' | translate" class="w-full text-lg text-white bg-black border-2 border-white rounded-lg
+                 focus:border-yellow-400 focus:ring-yellow-400 focus:outline-none
                  placeholder-gray-500 py-3 px-4 transition-all duration-300" required />
         </div>
 
         <!-- Subject -->
         <div>
-          <label for="subject" class="block mb-2 text-base font-medium text-white">Subject</label>
-          <input type="text" id="subject" formControlName="subject" placeholder="Let us know how we can help" class="w-full text-lg text-white bg-black border-2 border-white rounded-lg 
-                 focus:border-yellow-400 focus:ring-yellow-400 focus:outline-none 
+          <label for="subject" class="block mb-2 text-base font-medium text-white">{{ 'CONTACT.LABEL_SUBJECT' | translate }}</label>
+          <input type="text" id="subject" formControlName="subject" [placeholder]="'CONTACT.PLACEHOLDER_SUBJECT' | translate" class="w-full text-lg text-white bg-black border-2 border-white rounded-lg
+                 focus:border-yellow-400 focus:ring-yellow-400 focus:outline-none
                  placeholder-gray-500 py-3 px-4 transition-all duration-300" required />
         </div>
 
         <!-- Message -->
         <div>
-          <label for="message" class="block mb-2 text-base font-medium text-white">Your Message</label>
-          <textarea id="message" formControlName="message" rows="6" placeholder="Write your message here" class="w-full text-lg text-white bg-black border-2 border-white rounded-lg 
-                 focus:border-yellow-400 focus:ring-yellow-400 focus:outline-none 
+          <label for="message" class="block mb-2 text-base font-medium text-white">{{ 'CONTACT.LABEL_MESSAGE' | translate }}</label>
+          <textarea id="message" formControlName="message" rows="6" [placeholder]="'CONTACT.PLACEHOLDER_MESSAGE' | translate" class="w-full text-lg text-white bg-black border-2 border-white rounded-lg
+                 focus:border-yellow-400 focus:ring-yellow-400 focus:outline-none
                  placeholder-gray-500 py-3 px-4 transition-all duration-300" required></textarea>
         </div>
 
@@ -126,12 +123,12 @@
         <div class="text-center">
           <button type="submit" [disabled]="emailForm.invalid || isLoading" class="py-3 px-8 text-lg font-semibold bg-gradient-to-br from-[#eab308] via-[#ca8a04] to-[#a16207] text-white rounded-lg shadow-lg
         hover:opacity-90 transition duration-300">
-            {{ isLoading ? 'Sending...' : 'Send Message' }}
+            {{ isLoading ? ('CONTACT.SENDING' | translate) : ('CONTACT.SEND_BUTTON' | translate) }}
           </button>
         </div>
       </form>
 
-      <!-- ✅ Success/Error Message -->
+      <!-- Success/Error Message -->
       <p *ngIf="message" class="text-center mt-6 text-yellow-400 text-lg font-medium">
         {{ message }}
       </p>
@@ -152,12 +149,12 @@
         <a href="https://www.linkedin.com/company/terrabots-ras-uni/" aria-label="LinkedIn"
           class="text-white hover:text-yellow-400 transition duration-300 flex flex-col items-center">
           <svg class="w-10 h-10 mb-1" fill="currentColor" viewBox="0 0 448 512">
-            <path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 
-            108.1 0 83.49 0 53.79 0 24.09 24.09 0 53.79 0 
-            s53.79 24.09 53.79 53.79c0 29.7-24.09 54.31-53.79 
-            54.31zM447.9 448h-92.4V302.4c0-34.7-.7-79.2-48.3-79.2 
-            -48.3 0-55.7 37.7-55.7 76.7V448h-92.6V148.9h88.9v40.8 
-            h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 
+            <path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09
+            108.1 0 83.49 0 53.79 0 24.09 24.09 0 53.79 0
+            s53.79 24.09 53.79 53.79c0 29.7-24.09 54.31-53.79
+            54.31zM447.9 448h-92.4V302.4c0-34.7-.7-79.2-48.3-79.2
+            -48.3 0-55.7 37.7-55.7 76.7V448h-92.6V148.9h88.9v40.8
+            h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0
             111.3 61.9 111.3 142.3V448z" />
           </svg>LinkedIn
         </a>
@@ -175,39 +172,25 @@
         <a href="https://www.facebook.com/share/1Dxt4x2MVu/" aria-label="Facebook"
           class="text-white hover:text-yellow-400 transition duration-300 flex flex-col items-center">
           <svg class="w-10 h-10 mb-1" fill="currentColor" viewBox="0 0 320 512">
-            <path d="M279.14 288l14.22-92.66h-88.91v-60.13 
-            c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S259.88 
-            0 225.36 0c-73.14 0-121.09 44.38-121.09 
+            <path d="M279.14 288l14.22-92.66h-88.91v-60.13
+            c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S259.88
+            0 225.36 0c-73.14 0-121.09 44.38-121.09
             124.72v70.62H22.89V288h81.38v224h100.2V288z" />
           </svg>Facebook
         </a>
-
-        <!-- Telegram -->
-        <!--<a href="#" aria-label="Telegram" class="text-white hover:text-yellow-400 transition duration-300 flex flex-col items-center">
-        <svg class="w-10 h-10 mb-1" fill="currentColor" viewBox="0 0 496 512">
-          <path d="M248 8C111 8 0 119 0 256s111 248 
-            248 248 248-111 248-248S385 8 248 8zm113.1 
-            169.2l-35.4 167.7c-2.7 12.4-9.9 15.4-20 
-            9.6l-55.2-40.7-26.6 25.6c-2.9 2.9-5.4 
-            5.4-11.1 5.4l4-58.5 106.7-96.1c4.6-4.1-1-6.4-7.1-2.3L155.8 
-            274.2l-56.3-17.6c-12.2-3.8-12.4-12.2 
-            2.5-18l220.1-84.9c10.1-3.7 
-            18.9 2.5 15 18.5z"/>
-        </svg>Telegram
-      </a> -->
 
         <!-- YouTube -->
         <a href="https://www.youtube.com/@Terrabots" aria-label="YouTube"
           class="text-white hover:text-yellow-400 transition duration-300 flex flex-col items-center" target="_blank">
           <svg class="w-10 h-10 mb-1" fill="currentColor" viewBox="0 0 576 512">
-            <path d="M549.655 124.083c-6.281-23.65-24.813-42.183-48.465-48.465C456.27 64 288 64 288 
-             64s-168.27 0-213.19 11.618c-23.65 6.281-42.183 24.813-48.465 
-             48.465C16.727 168.97 16.727 256 16.727 
-             256s0 87.03 9.618 131.917c6.281 23.65 24.813 42.183 48.465 
-             48.465C119.73 448 288 448 288 
-             448s168.27 0 213.19-11.618c23.65-6.281 42.183-24.813 
-             48.465-48.465C559.273 343.03 559.273 256 559.273 
-             256s0-87.03-9.618-131.917zM232.727 338.909V173.091L384 
+            <path d="M549.655 124.083c-6.281-23.65-24.813-42.183-48.465-48.465C456.27 64 288 64 288
+             64s-168.27 0-213.19 11.618c-23.65 6.281-42.183 24.813-48.465
+             48.465C16.727 168.97 16.727 256 16.727
+             256s0 87.03 9.618 131.917c6.281 23.65 24.813 42.183 48.465
+             48.465C119.73 448 288 448 288
+             448s168.27 0 213.19-11.618c23.65-6.281 42.183-24.813
+             48.465-48.465C559.273 343.03 559.273 256 559.273
+             256s0-87.03-9.618-131.917zM232.727 338.909V173.091L384
              256l-151.273 82.909z" />
           </svg>
           YouTube
@@ -218,27 +201,27 @@
           aria-label="WhatsApp"
           class="text-white hover:text-yellow-400 transition duration-300 flex flex-col items-center">
           <svg class="w-10 h-10 mb-1" fill="currentColor" viewBox="0 0 448 512">
-            <path d="M380.9 97.1C339 55.1 283.1 32 224 32 
-            100.3 32 0 132.3 0 256c0 45.2 11.9 89.1 
-            34.5 127.5L0 480l100.5-33.3C139.1 
-            470.9 180.9 480 224 480c123.7 
-            0 224-100.3 224-224 0-59.1-23-114.7-67.1-158.9zM224 
-            432c-38.3 0-76.1-10.4-109-30l-7.8-4.6-59.8 
-            19.8 20.2-58-5.1-8C43.2 322.7 32 
-            289.9 32 256 32 150.1 118.1 64 
-            224 64c57.4 0 111.3 22.3 151.8 
-            62.8S416 198.6 416 256c0 
-            105.9-86.1 176-192 176zm101.8-138.1c-5.5-2.7-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 
-            2.8-3.7 5.6-14.3 18-17.6 
-            21.8-3.2 3.7-6.5 4.2-12 
-            1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 
-            5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 
-            0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 
-            46.3 0 27.3 19.9 53.7 22.6 57.4 
-            2.8 3.7 39.1 59.7 94.8 
-            83.8 35.2 15.2 49 16.5 66.6 
-            13.9 10.7-1.6 32.8-13.4 
-            37.4-26.4 4.6-13 4.6-24.1 
+            <path d="M380.9 97.1C339 55.1 283.1 32 224 32
+            100.3 32 0 132.3 0 256c0 45.2 11.9 89.1
+            34.5 127.5L0 480l100.5-33.3C139.1
+            470.9 180.9 480 224 480c123.7
+            0 224-100.3 224-224 0-59.1-23-114.7-67.1-158.9zM224
+            432c-38.3 0-76.1-10.4-109-30l-7.8-4.6-59.8
+            19.8 20.2-58-5.1-8C43.2 322.7 32
+            289.9 32 256 32 150.1 118.1 64
+            224 64c57.4 0 111.3 22.3 151.8
+            62.8S416 198.6 416 256c0
+            105.9-86.1 176-192 176zm101.8-138.1c-5.5-2.7-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5
+            2.8-3.7 5.6-14.3 18-17.6
+            21.8-3.2 3.7-6.5 4.2-12
+            1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8
+            5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7
+            0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4
+            46.3 0 27.3 19.9 53.7 22.6 57.4
+            2.8 3.7 39.1 59.7 94.8
+            83.8 35.2 15.2 49 16.5 66.6
+            13.9 10.7-1.6 32.8-13.4
+            37.4-26.4 4.6-13 4.6-24.1
             3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
           </svg>WhatsApp
         </a>

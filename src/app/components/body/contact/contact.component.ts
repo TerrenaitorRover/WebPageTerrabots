@@ -1,11 +1,12 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { EmailService } from '../../../email.service';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-contact',
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, TranslateModule],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.css'
 })
@@ -14,7 +15,11 @@ export class ContactComponent {
   isLoading = false;
   message = '';
 
-  constructor(private fb: FormBuilder, private emailService: EmailService) {
+  constructor(
+    private fb: FormBuilder,
+    private emailService: EmailService,
+    private translate: TranslateService
+  ) {
     this.emailForm = this.fb.group({
       to: ['', [Validators.required, Validators.email]],
       subject: ['', Validators.required],
@@ -26,17 +31,17 @@ export class ContactComponent {
     if (this.emailForm.invalid) return;
 
     this.isLoading = true;
-    this.message = ''; // limpiar mensaje anterior
+    this.message = '';
 
     const { to, subject, message } = this.emailForm.value;
 
     this.emailService.sendEmail(to, subject, message).subscribe({
       next: () => {
-        this.message = 'Email sent successfully!';
+        this.message = this.translate.instant('CONTACT.SUCCESS');
         this.emailForm.reset();
       },
       error: () => {
-        this.message = 'Failed to send email.';
+        this.message = this.translate.instant('CONTACT.ERROR');
       },
       complete: () => {
         this.isLoading = false;
@@ -74,10 +79,10 @@ export class ContactComponent {
   // --- Funciones ---
   copy(text: string): void {
     navigator.clipboard.writeText(text).then(() => {
-      this.copyMessage = `Copied: ${text}`;
+      this.copyMessage = `${this.translate.instant('CONTACT.COPIED')}: ${text}`;
       setTimeout(() => this.copyMessage = '', 2500);
     }).catch(() => {
-      this.copyMessage = 'Failed to copy.';
+      this.copyMessage = this.translate.instant('CONTACT.COPY_FAILED');
       setTimeout(() => this.copyMessage = '', 2500);
     });
   }
@@ -86,4 +91,3 @@ export class ContactComponent {
     window.open(src, '_blank');
   }
 }
-
