@@ -68,12 +68,17 @@ export class ContactComponent {
     }
   ];
 
+  // --- Toast notification ---
+  copyMessage: string = '';
+
   // --- Funciones ---
   copy(text: string): void {
     navigator.clipboard.writeText(text).then(() => {
-      alert(`Copiado: ${text}`);
+      this.copyMessage = `Copied: ${text}`;
+      setTimeout(() => this.copyMessage = '', 2500);
     }).catch(() => {
-      alert('No se pudo copiar.');
+      this.copyMessage = 'Failed to copy.';
+      setTimeout(() => this.copyMessage = '', 2500);
     });
   }
 

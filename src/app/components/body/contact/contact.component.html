@@ -17,57 +17,78 @@
 
 <body>
 
-<div class="max-w-4xl mx-auto p-6">
-  <!-- Secci�n QR -->
-  <h2 class="text-3xl font-extrabold text-center mb-6 text-[#facc15]">Dona con QR</h2>
+<div class="bg-[#0e0e0e] relative min-h-screen">
+  <!-- Logo background with transparency (covers entire page) -->
+  <div class="absolute inset-0 bg-[url('/assets/logo.png')] bg-no-repeat bg-center bg-contain opacity-10 pointer-events-none"></div>
+
+<div class="max-w-4xl mx-auto p-6 relative z-10">
+
+  <!-- Support Header -->
+  <div class="text-center mb-10">
+    <h2 class="text-3xl md:text-4xl font-extrabold text-[#facc15] mb-4">Be Part of the Mission</h2>
+    <p class="text-gray-300 max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
+      Every contribution fuels innovation, empowers future engineers, and helps us build robotics technology made in Peru.
+      Your support keeps our mission moving forward.
+    </p>
+  </div>
+
+  <!-- QR - Quick support -->
+  <h3 class="text-2xl font-bold text-center mb-6 text-white">Quick Support via Mobile</h3>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
     <!-- Yape -->
     <div class="p-6 rounded-2xl shadow-lg hover:shadow-2xl transition bg-gradient-to-br from-purple-100 via-white to-purple-50 border border-purple-200">
-      <h3 class="text-2xl font-bold text-purple-700 text-center mb-4">Yape</h3>
-      <img [src]="yapeQr" alt="QR Yape" class="w-64 h-64 mx-auto rounded-xl border-4 border-purple-300 shadow-md" (click)="openQr(yapeQr)">
-      <p class="text-center mt-4 font-semibold text-gray-800">Número: <span class="text-purple-700">{{ phone }}</span></p>
+      <h4 class="text-2xl font-bold text-purple-700 text-center mb-4">Yape</h4>
+      <img [src]="yapeQr" alt="QR Yape" class="w-64 h-64 mx-auto rounded-xl border-4 border-purple-300 shadow-md cursor-pointer" (click)="openQr(yapeQr)">
+      <p class="text-center mt-4 font-semibold text-gray-800">Phone: <span class="text-purple-700">{{ phone }}</span></p>
       <button (click)="copy(phone)" class="mt-3 w-full px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 font-medium shadow">
-        Copiar número
+        Copy number
       </button>
     </div>
 
     <!-- Plin -->
     <div class="p-6 rounded-2xl shadow-lg hover:shadow-2xl transition bg-gradient-to-br from-green-100 via-white to-green-50 border border-green-200">
-      <h3 class="text-2xl font-bold text-green-700 text-center mb-4">Plin</h3>
-      <img [src]="plinQr" alt="QR Plin" class="w-64 h-64 mx-auto rounded-xl border-4 border-green-300 shadow-md" (click)="openQr(plinQr)">
-      <p class="text-center mt-4 font-semibold text-gray-800">Número: <span class="text-green-700">{{ phone }}</span></p>
+      <h4 class="text-2xl font-bold text-green-700 text-center mb-4">Plin</h4>
+      <img [src]="plinQr" alt="QR Plin" class="w-64 h-64 mx-auto rounded-xl border-4 border-green-300 shadow-md cursor-pointer" (click)="openQr(plinQr)">
+      <p class="text-center mt-4 font-semibold text-gray-800">Phone: <span class="text-green-700">{{ phone }}</span></p>
       <button (click)="copy(phone)" class="mt-3 w-full px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 font-medium shadow">
-        Copiar número
+        Copy number
       </button>
     </div>
   </div>
 
-  <!-- Secciún Bancos -->
-  <h2 class="text-3xl font-extrabold text-center my-10 text-[#facc15]">Cuentas Bancarias</h2>
+  <!-- Bank Transfer Section -->
+  <div class="text-center my-10">
+    <h3 class="text-2xl font-bold text-white mb-2">Bank Transfer</h3>
+    <p class="text-gray-400 text-sm">If you prefer to support us via bank transfer, here are our account details.</p>
+  </div>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-    <div *ngFor="let c of cuentas" 
+    <div *ngFor="let c of cuentas"
          class="p-6 rounded-2xl shadow-lg hover:shadow-2xl transition bg-gradient-to-br from-blue-50 via-white to-blue-100 border border-blue-200">
-      <h3 class="text-xl font-bold text-blue-700 mb-3">{{ c.banco }}</h3>
-      <p class="mb-2 font-medium text-gray-700">Cuenta: <span class="font-mono text-blue-900">{{ c.cuenta }}</span></p>
+      <h4 class="text-xl font-bold text-blue-700 mb-3">{{ c.banco }}</h4>
+      <p class="mb-2 font-medium text-gray-700">Account: <span class="font-mono text-blue-900">{{ c.cuenta }}</span></p>
       <button (click)="copy(c.cuenta)" class="mb-3 px-3 py-1 bg-blue-600 text-white rounded-lg hover:bg-blue-700 text-sm font-medium shadow">
-        Copiar Cuenta
+        Copy Account
       </button>
       <p class="mb-2 font-medium text-gray-700">CCI: <span class="font-mono text-indigo-900">{{ c.cci }}</span></p>
       <button (click)="copy(c.cci)" class="px-3 py-1 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 text-sm font-medium shadow">
-        Copiar CCI
+        Copy CCI
       </button>
     </div>
   </div>
-</div>
 
+  <!-- Toast notification -->
+  <div *ngIf="copyMessage"
+    class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-[#facc15] text-black px-6 py-3 rounded-xl shadow-lg font-semibold text-sm flex items-center gap-2 animate-bounce">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+    </svg>
+    {{ copyMessage }}
+  </div>
 
-  <section class="bg-black py-20 px-4 sm:px-6 md:px-10 lg:px-12 xl:px-16 relative overflow-hidden">
-    <!-- Logo background with transparency -->
-    <div
-      class="absolute inset-0 bg-[url('/assets/logo.png')] bg-no-repeat bg-center bg-contain opacity-10 pointer-events-none">
-    </div>
+  <!-- Thank you message -->
+  <p class="text-center text-gray-500 text-sm mt-8 pb-10">Thank you for believing in Peruvian robotics and the talent of our students.</p>
 
-    <!-- Main content above background -->
+  <section class="py-20 px-4 sm:px-6 md:px-10 lg:px-12 xl:px-16 relative overflow-hidden">
     <div class="max-w-4xl mx-auto relative z-10">
       <h2 class="mb-4 text-5xl font-extrabold text-center text-[#facc15] drop-shadow-lg">
         Contact Us
@@ -226,3 +247,5 @@
 
     </div>
   </section>
+</div>
+</div>
