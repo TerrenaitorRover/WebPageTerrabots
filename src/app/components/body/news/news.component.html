@@ -1,0 +1,87 @@
+<main>
+  <section id="news" class="relative py-20 px-4 sm:px-6 md:px-10 lg:px-12 xl:px-16 bg-[#0e0e0e] overflow-hidden min-h-screen">
+    <!-- Background -->
+    <div class="absolute inset-0 bg-[url('/assets/fondo-event.png')] bg-repeat opacity-10 pointer-events-none"></div>
+
+    <div class="max-w-4xl mx-auto relative z-10">
+
+      <!-- Page Header -->
+      <div class="text-center mb-20">
+        <h2 class="text-5xl font-extrabold text-[#facc15] drop-shadow-lg mb-4 animate-fadeInUp">{{ 'NEWS.TITLE' | translate }}</h2>
+        <p class="text-lg text-gray-400 max-w-2xl mx-auto animate-fadeInUp">{{ 'NEWS.SUBTITLE' | translate }}</p>
+      </div>
+
+      <!-- Featured Milestone -->
+      <article class="animate-fadeInUp">
+        <div class="bg-black/90 backdrop-blur-md rounded-2xl shadow-2xl border border-[#facc15]/30 overflow-hidden">
+
+          <!-- Andina image -->
+          <img src="assets/andina.png" alt="TerraBots at the European Rover Challenge" class="cursor-pointer w-full h-56 md:h-80 object-cover hover:opacity-90 transition" (click)="goToAndina()">
+
+          <div class="p-8 md:p-10">
+
+            <!-- Tags -->
+            <div class="flex flex-wrap items-center gap-3 mb-6">
+              <span class="px-3 py-1 bg-[#facc15] text-black text-xs font-bold rounded-full uppercase tracking-wide">{{ 'NEWS.TAG_MILESTONE' | translate }}</span>
+              <span class="px-3 py-1 bg-[#facc15]/15 text-[#facc15] text-xs font-bold rounded-full uppercase tracking-wide">{{ 'NEWS.TAG_ERC' | translate }}</span>
+              <span class="text-gray-500 text-sm">{{ 'NEWS.FEATURED_DATE' | translate }}</span>
+            </div>
+
+            <!-- Headline -->
+            <h3 class="text-2xl md:text-3xl font-bold text-white mb-6 leading-tight">{{ 'NEWS.FEATURED_TITLE' | translate }}</h3>
+
+            <!-- Big number highlight -->
+            <div class="flex items-center gap-6 mb-8 py-6 border-y border-[#facc15]/20">
+              <div class="text-center">
+                <span class="text-6xl md:text-7xl font-black text-[#facc15] leading-none">5</span>
+                <span class="text-2xl md:text-3xl font-black text-[#facc15] align-top">th</span>
+              </div>
+              <div>
+                <p class="text-white font-semibold text-lg md:text-xl">{{ 'NEWS.RANK_LABEL' | translate }}</p>
+                <p class="text-gray-400 text-sm">{{ 'NEWS.RANK_CONTEXT' | translate }}</p>
+              </div>
+            </div>
+
+            <!-- Body text -->
+            <div class="space-y-4 mb-8">
+              <p class="text-gray-300 leading-relaxed">{{ 'NEWS.FEATURED_P1' | translate }}</p>
+              <p class="text-gray-300 leading-relaxed">{{ 'NEWS.FEATURED_P2' | translate }}</p>
+            </div>
+
+            <!-- ERC logo + Andina mention -->
+            <div class="flex flex-wrap items-center gap-6 pt-6 border-t border-gray-800">
+              <div class="bg-white p-3 rounded shadow-md">
+                <img src="/assets/erc-logo.png" alt="European Rover Challenge" loading="lazy" class="h-12 object-contain" />
+              </div>
+              <div class="text-sm text-gray-500">
+                <p>{{ 'NEWS.MEDIA_CREDIT' | translate }}</p>
+                <a href="https://andina.pe/agencia/noticia-estudiantes-de-uni-usan-ia-para-control-rover-planetario-y-destacan-concurso-1046194.aspx" target="_blank" rel="noopener noreferrer"
+                  class="text-yellow-400 font-semibold hover:underline">{{ 'NEWS.READ_ARTICLE' | translate }} &rarr;</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+</main>
+
+<style>
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fadeInUp {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+</style>

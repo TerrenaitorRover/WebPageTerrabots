@@ -11,7 +11,7 @@ We design and build autonomous robotic systems — including the **Terranaitor R
 - **Language:** TypeScript (strict mode)
 - **i18n:** ngx-translate (English/Spanish, runtime toggle)
 - **Deployment:** Netlify (SPA redirect)
-- **Backend:** Node.js + Express on Render.com (email API only)
+- **Backend:** Node.js + Express on Render.com (contact form API)
 
 ## Getting Started
 
@@ -44,18 +44,18 @@ src/
 │   ├── app.component.*          # Root component (navbar + router-outlet + footer)
 │   ├── app.config.ts            # Providers: router, HttpClient, Forms, TranslateModule
 │   ├── app.routes.ts            # Route definitions
-│   ├── email.service.ts         # Contact form API service
+│   ├── email.service.ts         # Contact form API service (POST /send-email)
 │   └── components/
 │       ├── navbar/              # Responsive nav with mobile hamburger menu + language toggle
 │       ├── footer/              # Site-wide footer
 │       └── body/
 │           ├── home/            # Landing page
 │           ├── about/           # About us, mission, vision, pillars (i18n)
-│           ├── projects/        # Rover project overview
+│           ├── news/            # News & milestones (ERC results, media coverage) (i18n)
+│           ├── projects/        # Rover subsystems, dev process, results (i18n)
 │           ├── team/            # Team members
 │           ├── sponsors/        # Sponsors & partners
-│           ├── events/          # Competitions & events (ERC)
-│           ├── contact/         # Donation (Yape/Plin/Bank) + contact form (i18n)
+│           ├── contact/         # Contact form, location map, social links, donations (i18n)
 │           ├── privacy-policy/  # Privacy policy
 │           └── terms-conditions/# Terms & conditions
 ├── assets/
@@ -69,17 +69,36 @@ src/
 
 ## Pages & Routes
 
-| Route               | Component             | Description                          |
-|----------------------|-----------------------|--------------------------------------|
-| `/home`             | HomeComponent          | Landing page with hero section       |
-| `/about`            | AboutComponent         | About us, history, mission & vision  |
-| `/projects`         | ProjectsComponent      | Rover project details & videos       |
-| `/team`             | TeamComponent          | Team members & roles                 |
-| `/sponsors`         | SponsorsComponent      | Academic & corporate partners        |
-| `/events`           | EventsComponent        | Competitions (European Rover Challenge) |
-| `/contact`          | ContactComponent       | Donations (QR/bank) + contact form   |
-| `/privacypolicy`    | PrivacyPolicyComponent | Privacy policy                       |
-| `/termsconditions`  | TermsConditionsComponent | Terms & conditions                 |
+| Route               | Component               | Description                                        |
+|----------------------|-------------------------|----------------------------------------------------|
+| `/home`             | HomeComponent            | Landing page with hero section                     |
+| `/about`            | AboutComponent           | About us, history, mission & vision                |
+| `/news`             | NewsComponent            | Milestones, competition results, media coverage    |
+| `/projects`         | ProjectsComponent        | Dev process, subsystems, results & progress        |
+| `/team`             | TeamComponent            | Team members & roles                               |
+| `/sponsors`         | SponsorsComponent        | Academic & corporate partners                      |
+| `/contact`          | ContactComponent         | Contact form, location, social links, donations    |
+| `/privacypolicy`    | PrivacyPolicyComponent   | Privacy policy                                     |
+| `/termsconditions`  | TermsConditionsComponent | Terms & conditions                                 |
+
+**Navigation order:** Home, About, News, Projects, Team, Sponsors, Contact
+
+## Page Details
+
+### News
+Single featured milestone card highlighting the lab's 5th place worldwide result at the European Rover Challenge 2025 (Remote Edition), with integrated Andina News Agency media coverage. Designed as a milestone-focused page, not an event listing.
+
+### Projects
+- **Development Process:** Strategic Planning, Prototype Engineering, Field Validation (3-card grid)
+- **Rover Subsystems:** Control & Navigation, Mechanics, Electronics, Artificial Intelligence (2x2 grid)
+- **Results & Progress:** Autonomous Navigation Test, Full System Integration, AI Terrain Classification
+
+### Contact
+Two-column layout on desktop (stacked on mobile):
+- **Left:** Contact form (email, subject, message → backend API)
+- **Right:** Location card with embedded Google Maps (Pabellón Q — FIEE, Campus UNI)
+- **Below:** Compact social links row (GitHub, LinkedIn, Instagram, Facebook, YouTube, WhatsApp)
+- **Bottom:** Support section with Yape/Plin QR codes and bank transfer details
 
 ## Internationalization (i18n)
 
@@ -102,15 +121,26 @@ The website supports **English** and **Spanish** with runtime language switching
 
 - Navbar (all links)
 - About (full page)
-- Contact (donation section + contact form + toast notifications)
+- News (full page)
+- Projects (full page)
+- Contact (form, location, social links, donations, toast notifications)
+
+### Not yet translated
+
+- Home, Team, Sponsors, Footer, Privacy Policy, Terms & Conditions
 
 ## Backend API
 
-The frontend is a client-side SPA. The only backend is a separate service for the contact form:
+The frontend is a client-side SPA. The only backend is a separate contact form service:
 
 - **Endpoint:** `POST https://servewebterrabots.onrender.com/send-email`
+- **Health check:** `GET https://servewebterrabots.onrender.com/healthz`
+- **Payload:** `{ email, subject, message }`
 - **Called from:** `src/app/email.service.ts`
 - **Hosted on:** Render.com (separate repository)
+- **SMTP:** Gmail with App Password
+- **Environment variables (Render):** `EMAIL_USER`, `EMAIL_PASS`, `ALLOWED_ORIGINS`
+- **Timeout:** Frontend applies a 30s timeout via RxJS `timeout()` operator
 
 ## Deployment
 
@@ -123,12 +153,20 @@ Deployed on **Netlify** with SPA routing configured in `netlify.toml`:
   status = 200
 ```
 
+## Brand Naming
+
+- **Official name:** Robotics & Embodied AI Lab — UNI
+- **Short name:** R-EAI Lab — UNI
+- **Alias:** TerraBots (original founding name)
+- **Rover:** Terranaitor (V1: 2024, V2: 2025) — refers to the rover only, not the team
+
 ## Design
 
 - Dark theme: `#0e0e0e` backgrounds, gold `#facc15` accents, white text
 - Responsive design with Tailwind's `md:` and `lg:` breakpoints
 - Mobile hamburger menu (visible below 1024px)
 - Toast notifications for clipboard copy actions
+- Cards use `bg-[#141414]` with `border-gray-800`
 
 ## License
 

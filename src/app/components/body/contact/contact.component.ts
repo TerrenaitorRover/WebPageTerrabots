@@ -21,7 +21,7 @@ export class ContactComponent {
     private translate: TranslateService
   ) {
     this.emailForm = this.fb.group({
-      to: ['', [Validators.required, Validators.email]],
+      email: ['', [Validators.required, Validators.email]],
       subject: ['', Validators.required],
       message: ['', Validators.required],
     });
@@ -33,17 +33,16 @@ export class ContactComponent {
     this.isLoading = true;
     this.message = '';
 
-    const { to, subject, message } = this.emailForm.value;
+    const { email, subject, message } = this.emailForm.value;
 
-    this.emailService.sendEmail(to, subject, message).subscribe({
+    this.emailService.sendEmail(email, subject, message).subscribe({
       next: () => {
         this.message = this.translate.instant('CONTACT.SUCCESS');
         this.emailForm.reset();
+        this.isLoading = false;
       },
       error: () => {
         this.message = this.translate.instant('CONTACT.ERROR');
-      },
-      complete: () => {
         this.isLoading = false;
       },
     });

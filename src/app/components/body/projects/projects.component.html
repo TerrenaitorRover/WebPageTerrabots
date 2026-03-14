@@ -2,15 +2,13 @@
     <div class="relative z-10 max-w-7xl mx-auto">
 <!-- Intro Video -->
 <div class="mb-16 text-center">
-  <h2 class="text-4xl font-extrabold tracking-tight text-white mb-6">Project Overview</h2>
-  <p class="text-lg text-gray-400 max-w-3xl mx-auto mb-6">
-    This page showcases the current progress and outcomes of <strong>Terraneitor</strong>, our advanced rover project.
-  </p>
+  <h2 class="text-4xl font-extrabold tracking-tight text-white mb-6">{{ 'PROJECTS.OVERVIEW_TITLE' | translate }}</h2>
+  <p class="text-lg text-gray-400 max-w-3xl mx-auto mb-6">{{ 'PROJECTS.OVERVIEW_DESC' | translate }}</p>
   <div class="aspect-w-16 aspect-h-9 mb-8">
     <div class="border-4 border-gray-700 rounded-2xl overflow-hidden shadow-lg transition-all duration-300 hover:border-yellow-400">
       <iframe class="w-full h-96"
         src="https://www.youtube.com/embed/-Bf85Lbk9tk"
-        title="Avances del prototipo rover Terranaitor"
+        title="Terranaitor rover prototype progress"
         frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen>
@@ -19,71 +17,100 @@
   </div>
 </div>
 
-
-      <!-- Projects Title -->
-      <div class="text-center mb-16">
-        <h2 class="text-4xl font-extrabold tracking-tight text-white mb-4">Our Project</h2>
-        <p class="text-lg text-gray-400 max-w-3xl mx-auto">Terraneitor is our exploration rover designed for competitive research and publication. It is composed of interdisciplinary subsystems that work together for autonomous and intelligent operations.</p>
+      <!-- Development Process -->
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-extrabold tracking-tight text-white mb-4">{{ 'PROJECTS.PROCESS_TITLE' | translate }}</h2>
+        <p class="text-lg text-gray-400 max-w-3xl mx-auto">{{ 'PROJECTS.PROCESS_DESC' | translate }}</p>
       </div>
-  
-      <!-- Project Areas -->
+
+      <div class="grid md:grid-cols-3 gap-8 mb-20">
+        <div class="rounded-xl overflow-hidden shadow-lg border border-gray-800 bg-[#1a1a1a]">
+          <img src="assets/equipo1.jpg" alt="Strategic Planning" class="w-full h-56 object-cover">
+          <div class="p-5 text-left">
+            <h3 class="text-lg font-semibold text-[#facc15] mb-2">{{ 'PROJECTS.PLANNING_TITLE' | translate }}</h3>
+            <p class="text-gray-400 text-sm">{{ 'PROJECTS.PLANNING_DESC' | translate }}</p>
+          </div>
+        </div>
+        <div class="rounded-xl overflow-hidden shadow-lg border border-gray-800 bg-[#1a1a1a]">
+          <img src="assets/prototipo1.png" alt="Prototype Engineering" class="w-full h-56 object-cover">
+          <div class="p-5 text-left">
+            <h3 class="text-lg font-semibold text-[#facc15] mb-2">{{ 'PROJECTS.ENGINEERING_TITLE' | translate }}</h3>
+            <p class="text-gray-400 text-sm">{{ 'PROJECTS.ENGINEERING_DESC' | translate }}</p>
+          </div>
+        </div>
+        <div class="rounded-xl overflow-hidden shadow-lg border border-gray-800 bg-[#1a1a1a]">
+          <img src="assets/test1.png" alt="Field Validation" class="w-full h-56 object-cover">
+          <div class="p-5 text-left">
+            <h3 class="text-lg font-semibold text-[#facc15] mb-2">{{ 'PROJECTS.VALIDATION_TITLE' | translate }}</h3>
+            <p class="text-gray-400 text-sm">{{ 'PROJECTS.VALIDATION_DESC' | translate }}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Subsystems -->
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-extrabold tracking-tight text-white mb-4">{{ 'PROJECTS.SUBSYSTEMS_TITLE' | translate }}</h2>
+        <p class="text-lg text-gray-400 max-w-3xl mx-auto">{{ 'PROJECTS.SUBSYSTEMS_DESC' | translate }}</p>
+      </div>
+
+      <!-- Subsystem Areas -->
       <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-12">
         <!-- Control and Navigation -->
         <div class="bg-gray-900 p-6 rounded-2xl shadow-lg">
           <img src="assets/ControlandNavigation.png" alt="Control and Navigation" class="w-full h-48 object-cover rounded-lg mb-4">
-          <h3 class="text-2xl font-bold text-yellow-400 mb-2">🧭 Control and Navigation</h3>
-          <p class="text-gray-300 text-sm">This area is responsible for developing algorithms that allow the rover to move precisely and autonomously in challenging environments. They handle localization, route planning, trajectory tracking, and motion control by integrating sensors like IMU, GPS RTK, and LiDAR. Techniques such as SLAM are employed for mapping and autonomous navigation, along with advanced controllers for stability and efficiency.</p>
+          <h3 class="text-2xl font-bold text-yellow-400 mb-2">{{ 'PROJECTS.NAV_TITLE' | translate }}</h3>
+          <p class="text-gray-300 text-sm">{{ 'PROJECTS.NAV_DESC' | translate }}</p>
         </div>
-  
+
         <!-- Mechanics -->
         <div class="bg-gray-900 p-6 rounded-2xl shadow-lg">
           <img src="assets/Mechanics.png" alt="Mechanics" class="w-full h-48 object-cover rounded-lg mb-4">
-          <h3 class="text-2xl font-bold text-yellow-400 mb-2">⚙ Mechanics</h3>
-          <p class="text-gray-300 text-sm">The mechanics team designs and constructs the rover’s structure, focusing on strength, mobility, and terrain adaptability. Responsibilities include CAD modeling, material selection, parts fabrication, and assembly. They also develop manipulation systems such as robotic arms, mobile gates, and adaptive mechanisms for specific exploration tasks.</p>
+          <h3 class="text-2xl font-bold text-yellow-400 mb-2">{{ 'PROJECTS.MECH_TITLE' | translate }}</h3>
+          <p class="text-gray-300 text-sm">{{ 'PROJECTS.MECH_DESC' | translate }}</p>
         </div>
-  
+
         <!-- Electronics -->
         <div class="bg-gray-900 p-6 rounded-2xl shadow-lg">
           <img src="assets/Electronics.png" alt="Electronics" class="w-full h-48 object-cover rounded-lg mb-4">
-          <h3 class="text-2xl font-bold text-yellow-400 mb-2">🔌 Electronics</h3>
-          <p class="text-gray-300 text-sm">This team manages all electronic hardware of the rover, including PCB design, power distribution, data acquisition, and communication systems. They ensure proper connection and functioning of sensors, actuators, and modules. Additionally, they develop embedded systems and reliable solutions for field operations.</p>
+          <h3 class="text-2xl font-bold text-yellow-400 mb-2">{{ 'PROJECTS.ELEC_TITLE' | translate }}</h3>
+          <p class="text-gray-300 text-sm">{{ 'PROJECTS.ELEC_DESC' | translate }}</p>
         </div>
-  
+
         <!-- Artificial Intelligence -->
         <div class="bg-gray-900 p-6 rounded-2xl shadow-lg">
           <img src="assets/AI.png" alt="Artificial Intelligence" class="w-full h-48 object-cover rounded-lg mb-4">
-          <h3 class="text-2xl font-bold text-yellow-400 mb-2">🤖 Artificial Intelligence</h3>
-          <p class="text-gray-300 text-sm">This area develops algorithms for perception, data analysis, and autonomous decision-making. They apply computer vision, machine learning, and neural networks for tasks like obstacle detection, object recognition, terrain classification, and operator assistance. Their work enables the rover to act intelligently in complex and dynamic scenarios.</p>
+          <h3 class="text-2xl font-bold text-yellow-400 mb-2">{{ 'PROJECTS.AI_TITLE' | translate }}</h3>
+          <p class="text-gray-300 text-sm">{{ 'PROJECTS.AI_DESC' | translate }}</p>
         </div>
       </div>
 
       <!-- Meet Our Team Button -->
       <div class="text-center mt-8 mb-16">
-        <a href="team" class="inline-block px-6 py-3 mt-4 bg-yellow-500 text-black font-bold rounded-full hover:bg-yellow-400 transition">Meet Our Team</a>
+        <a href="team" class="inline-block px-6 py-3 mt-4 bg-yellow-500 text-black font-bold rounded-full hover:bg-yellow-400 transition">{{ 'PROJECTS.MEET_TEAM' | translate }}</a>
       </div>
 
       <!-- Results Section -->
       <div class="text-center mt-28 mb-12">
-        <h2 class="text-4xl font-extrabold tracking-tight text-white mb-4">Results and Progress</h2>
-        <p class="text-lg text-gray-400 max-w-3xl mx-auto">Explore key milestones, experimental outcomes, and current testing phases of the Terraneitor rover as we advance toward our scientific and competitive goals.</p>
+        <h2 class="text-4xl font-extrabold tracking-tight text-white mb-4">{{ 'PROJECTS.RESULTS_TITLE' | translate }}</h2>
+        <p class="text-lg text-gray-400 max-w-3xl mx-auto">{{ 'PROJECTS.RESULTS_DESC' | translate }}</p>
       </div>
-  
+
       <!-- Result Cards -->
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
         <div class="bg-gray-900 p-5 rounded-2xl shadow-lg">
           <img src="assets/result1.png" alt="Field Test" class="w-full h-48 object-cover rounded-lg mb-4">
-          <h4 class="text-lg font-semibold text-yellow-400 mb-1">Field Test #1</h4>
-          <p class="text-sm text-gray-300">Successful obstacle navigation in rough terrain using SLAM and LiDAR integration. Evaluated stability and precision of autonomous movement.</p>
+          <h4 class="text-lg font-semibold text-yellow-400 mb-1">{{ 'PROJECTS.RESULT1_TITLE' | translate }}</h4>
+          <p class="text-sm text-gray-300">{{ 'PROJECTS.RESULT1_DESC' | translate }}</p>
         </div>
         <div class="bg-gray-900 p-5 rounded-2xl shadow-lg">
-          <img src="assets/result2.png" alt="Arm Test" class="w-full h-48 object-cover rounded-lg mb-4">
-          <h4 class="text-lg font-semibold text-yellow-400 mb-1">Rover Integration and Assembly</h4>
-          <p class="text-sm text-gray-300">The process included the assembly of the chassis, motors, sensors, battery, robotic arm, and control system, and has been tested so far to ensure the rover can move, explore terrains, and efficiently collect samples.</p>
+          <img src="assets/result2.png" alt="Rover Integration" class="w-full h-48 object-cover rounded-lg mb-4">
+          <h4 class="text-lg font-semibold text-yellow-400 mb-1">{{ 'PROJECTS.RESULT2_TITLE' | translate }}</h4>
+          <p class="text-sm text-gray-300">{{ 'PROJECTS.RESULT2_DESC' | translate }}</p>
         </div>
         <div class="bg-gray-900 p-5 rounded-2xl shadow-lg">
           <img src="assets/result3.png" alt="AI Detection" class="w-full h-48 object-cover rounded-lg mb-4">
-          <h4 class="text-lg font-semibold text-yellow-400 mb-1">AI Terrain Detection</h4>
-          <p class="text-sm text-gray-300">Neural network model tested for terrain classification and object recognition with camera input on-site.</p>
+          <h4 class="text-lg font-semibold text-yellow-400 mb-1">{{ 'PROJECTS.RESULT3_TITLE' | translate }}</h4>
+          <p class="text-sm text-gray-300">{{ 'PROJECTS.RESULT3_DESC' | translate }}</p>
         </div>
       </div>
     </div>
