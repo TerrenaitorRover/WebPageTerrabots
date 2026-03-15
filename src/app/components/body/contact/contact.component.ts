@@ -49,22 +49,27 @@ export class ContactComponent implements AfterViewInit, OnDestroy {
     }
   }
 
-  private renderTurnstile() {
-    const tryRender = () => {
-      if (typeof turnstile !== 'undefined' && this.turnstileContainer?.nativeElement) {
-        const siteKey = isDevMode() ? TURNSTILE_SITE_KEY_TEST : TURNSTILE_SITE_KEY_PROD;
-        this.turnstileWidgetId = turnstile.render(this.turnstileContainer.nativeElement, {
-          sitekey: siteKey,
-          theme: 'dark',
-          callback: (token: string) => { this.turnstileToken = token; },
-          'expired-callback': () => { this.turnstileToken = ''; },
-          'error-callback': (errorCode: string) => { console.error('Turnstile error:', errorCode); this.turnstileToken = ''; },
-        });
-      } else {
-        setTimeout(tryRender, 500);
-      }
-    };
-    tryRender();
+  private renderTurnstile(attempts = 0) {
+    if (attempts > 30) {
+      console.error('Turnstile: failed to load after 30 attempts');
+      return;
+    }
+
+    const container = document.getElementById('turnstile-container');
+    if (typeof turnstile === 'undefined' || !container) {
+      setTimeout(() => this.renderTurnstile(attempts + 1), 500);
+      return;
+    }
+
+    const siteKey = isDevMode() ? TURNSTILE_SITE_KEY_TEST : TURNSTILE_SITE_KEY_PROD;
+
+    this.turnstileWidgetId = turnstile.render(container, {
+      sitekey: siteKey,
+      theme: 'dark',
+      callback: (token: string) => { this.turnstileToken = token; },
+      'expired-callback': () => { this.turnstileToken = ''; },
+      'error-callback': (errorCode: string) => { console.error('Turnstile error:', errorCode); this.turnstileToken = ''; },
+    });
   }
 
   sendEmail() {
