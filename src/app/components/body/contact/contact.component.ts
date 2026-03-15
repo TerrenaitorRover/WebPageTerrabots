@@ -6,9 +6,8 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 declare var turnstile: any;
 
-const TURNSTILE_SITE_KEY = isDevMode()
-  ? '1x00000000000000000000AA'           // Cloudflare test key (always passes)
-  : '0x4AAAAAACq9Po-fcGtim7tk';          // Production site key
+const TURNSTILE_SITE_KEY_PROD = '0x4AAAAAACq9Po-fcGtim7tk';
+const TURNSTILE_SITE_KEY_TEST = '1x00000000000000000000AA';
 
 @Component({
   selector: 'app-contact',
@@ -53,12 +52,13 @@ export class ContactComponent implements AfterViewInit, OnDestroy {
   private renderTurnstile() {
     const tryRender = () => {
       if (typeof turnstile !== 'undefined' && this.turnstileContainer?.nativeElement) {
+        const siteKey = isDevMode() ? TURNSTILE_SITE_KEY_TEST : TURNSTILE_SITE_KEY_PROD;
         this.turnstileWidgetId = turnstile.render(this.turnstileContainer.nativeElement, {
-          sitekey: TURNSTILE_SITE_KEY,
+          sitekey: siteKey,
           theme: 'dark',
           callback: (token: string) => { this.turnstileToken = token; },
           'expired-callback': () => { this.turnstileToken = ''; },
-          'error-callback': () => { this.turnstileToken = ''; },
+          'error-callback': (errorCode: string) => { console.error('Turnstile error:', errorCode); this.turnstileToken = ''; },
         });
       } else {
         setTimeout(tryRender, 500);
