@@ -181,6 +181,26 @@ export class TeamComponent {
           role: 'Leader',
           photo: 'assets/team/mecanica/jose-rafael-rafael.jpg',
           linkedin: 'https://www.linkedin.com/in/jose-rafael-27162b152/'
+        },
+        {
+          name: 'Josue Enrique Quiñe Espinoza',
+          career: 'Mechatronics Engineering - UNI',
+          role: 'Member',
+          photo: 'assets/team/mecanica/Josue_Enrique_Quiñe_Espinoza.jpg',
+          linkedin: 'https://www.linkedin.com/in/josue-enrique-qui%C3%B1e-espinoza-70a6653b7/'
+        },
+        {
+          name: 'Paul Mahler Cusi Huaman',
+          career: 'Mechanical and Electrical Engineering - UNI',
+          role: 'Member',
+          photo: 'assets/team/mecanica/Paul_Mahler_Cusi_Huaman.jpg',
+          linkedin: 'https://www.linkedin.com/in/paul-cusi-huaman-38b162147/'
+        },
+        {
+          name: 'Flavia Fernanda Cavero Benites',
+          career: 'Engineering Physics - UNI',
+          role: 'Member',
+          photo: 'assets/team/mecanica/Flavia_Fernanda_Cavero_Benites.jpeg'
         }
       ]
     },
@@ -248,6 +268,13 @@ export class TeamComponent {
           role: 'Member',
           photo: 'assets/team/gs/erly-yupanqui-aguilar.png',
           linkedin: 'https://www.linkedin.com/in/erly-gabriel-yupanqui-aguilar-a224171a1'
+        },
+        {
+          name: 'Antonio Alejandro Saenz Camero',
+          career: 'Telecommunications Engineering - UNI',
+          role: 'Member',
+          photo: 'assets/team/gs/Antonio_Saenz_Camero.jpeg',
+          linkedin: 'https://www.linkedin.com/in/antonio-saenz-camero-3a80a228a/'
         }
       ]
     },
