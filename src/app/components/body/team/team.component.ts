@@ -234,7 +234,7 @@ export class TeamComponent {
           name: 'Horacio Eduardo Zerpa Diaz',
           career: 'Electronic Engineering - UNI',
           role: 'Member',
-          photo: 'assets/team/electronica/Horacio_Eduardo_Zerpa_Diaz.jpeg'
+          photo: 'assets/team/drone/Horacio_Eduardo_Zerpa_Diaz.jpeg'
         }
       ]
     },
