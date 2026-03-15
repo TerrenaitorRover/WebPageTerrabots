@@ -44,3 +44,10 @@ desktop.ini
 
 # Claude Code
 CLAUDE.md
+
+# Local Netlify folder
+.netlify
+
+# Data files
+Members.xlsx
+deno.lock
