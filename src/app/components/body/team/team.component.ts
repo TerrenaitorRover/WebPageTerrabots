@@ -167,7 +167,8 @@ export class TeamComponent {
           name: 'Victor Eduardo Colque Pacompia',
           career: 'Electronic Engineering - UNAP',
           role: 'Member',
-          photo: 'assets/persona.png'
+          photo: 'assets/team/electronica/Victor_Eduardo_Colque.jpg',
+          linkedin: 'https://www.linkedin.com/in/victor-eduardo-colque-pacompia-862b47205/'
         }
       ]
     },
