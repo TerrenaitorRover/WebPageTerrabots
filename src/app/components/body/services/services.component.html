@@ -1,0 +1,66 @@
+<div class="bg-[#0e0e0e] relative min-h-screen">
+  <div class="absolute inset-0 bg-[url('/assets/logo.png')] bg-no-repeat bg-center bg-contain opacity-10 pointer-events-none"></div>
+
+  <div class="relative z-10">
+
+    <!-- Header -->
+    <section class="pt-16 pb-4 px-4 sm:px-6 md:px-10">
+      <div class="max-w-6xl mx-auto text-center">
+        <h2 class="text-4xl md:text-5xl font-extrabold text-[#facc15] drop-shadow-lg mb-3">{{ 'SERVICES.PAGE_TITLE' | translate }}</h2>
+        <p class="text-gray-300 max-w-2xl mx-auto text-base md:text-lg leading-relaxed">{{ 'SERVICES.PAGE_DESC' | translate }}</p>
+      </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section class="py-10 px-4 sm:px-6 md:px-10">
+      <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <div *ngFor="let service of services"
+          class="bg-[#141414] border border-gray-800 rounded-2xl overflow-hidden flex flex-col hover:border-yellow-400/40 transition duration-300">
+
+          <!-- Service Image -->
+          <div class="h-52 overflow-hidden">
+            <img [src]="service.image" [alt]="service.titleKey | translate"
+              class="w-full h-full object-cover hover:scale-105 transition duration-500" />
+          </div>
+
+          <!-- Service Content -->
+          <div class="p-6 flex flex-col flex-1">
+            <h3 class="text-xl font-bold text-white mb-2">{{ service.titleKey | translate }}</h3>
+            <p class="text-gray-400 text-sm leading-relaxed mb-4">{{ service.descriptionKey | translate }}</p>
+
+            <!-- Features -->
+            <ul class="space-y-2 mb-6 flex-1">
+              <li *ngFor="let feature of service.features" class="flex items-start gap-2 text-sm text-gray-300">
+                <svg class="w-4 h-4 text-yellow-400 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span>{{ feature | translate }}</span>
+              </li>
+            </ul>
+
+            <!-- WhatsApp CTA -->
+            <a [href]="service.contact.whatsappUrl" target="_blank" rel="noopener noreferrer"
+              class="flex items-center justify-center gap-2 w-full py-3 bg-[#25D366] hover:bg-[#1ebe57] text-white font-semibold rounded-xl transition duration-300 shadow-lg">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 448 512">
+                <path d="M380.9 97.1C339 55.1 283.1 32 224 32 100.3 32 0 132.3 0 256c0 45.2 11.9 89.1 34.5 127.5L0 480l100.5-33.3C139.1 470.9 180.9 480 224 480c123.7 0 224-100.3 224-224 0-59.1-23-114.7-67.1-158.9zM224 432c-38.3 0-76.1-10.4-109-30l-7.8-4.6-59.8 19.8 20.2-58-5.1-8C43.2 322.7 32 289.9 32 256 32 150.1 118.1 64 224 64c57.4 0 111.3 22.3 151.8 62.8S416 198.6 416 256c0 105.9-86.1 176-192 176zm101.8-138.1c-5.5-2.7-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+              </svg>
+              {{ 'SERVICES.CONTACT_VIA_WHATSAPP' | translate }} — {{ service.contact.name }}
+            </a>
+
+            <p class="text-center text-gray-500 text-xs mt-2">{{ service.contact.phone }}</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Coming Soon Note -->
+    <section class="pb-16 px-4 sm:px-6 md:px-10">
+      <div class="max-w-6xl mx-auto text-center">
+        <p class="text-gray-500 text-sm">{{ 'SERVICES.MORE_COMING' | translate }}</p>
+      </div>
+    </section>
+
+  </div>
+</div>

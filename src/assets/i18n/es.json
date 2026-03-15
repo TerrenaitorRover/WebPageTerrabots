@@ -6,7 +6,8 @@
     "TEAM": "Equipo",
     "SPONSORS": "Patrocinadores",
     "NEWS": "Noticias",
-    "CONTACT": "Contacto"
+    "CONTACT": "Contacto",
+    "SERVICES": "Servicios"
   },
   "ABOUT": {
     "TITLE": "Sobre Nosotros",
@@ -129,5 +130,19 @@
     "THANK_YOU": "Gracias por creer en la robótica peruana y en el talento de nuestros estudiantes.",
     "COPIED": "Copiado",
     "COPY_FAILED": "No se pudo copiar."
+  },
+  "SERVICES": {
+    "PAGE_TITLE": "Nuestros Servicios",
+    "PAGE_DESC": "Ofrecemos servicios especializados de ingeniería respaldados por la experiencia de nuestro equipo en robótica, electrónica y manufactura avanzada.",
+    "CONTACT_VIA_WHATSAPP": "Contactar por WhatsApp",
+    "MORE_COMING": "Más servicios próximamente. ¡Mantente atento!",
+    "PRINTING_3D": {
+      "TITLE": "Servicio de Impresión 3D",
+      "DESCRIPTION": "Impresión 3D de alta calidad para prototipos, piezas mecánicas, carcasas personalizadas y componentes funcionales. Usamos tecnología FDM con variedad de materiales para dar vida a tus diseños.",
+      "FEATURE_1": "Materiales PLA, PETG, TPU y ABS disponibles",
+      "FEATURE_2": "Piezas personalizadas desde tus archivos STL/3MF",
+      "FEATURE_3": "Prototipado para proyectos académicos e industriales",
+      "FEATURE_4": "Entrega rápida y precios competitivos"
+    }
   }
 }

@@ -8,6 +8,7 @@ import { NewsComponent } from './components/body/news/news.component';
 import { ContactComponent } from './components/body/contact/contact.component';
 import { PrivacyPolicyComponent } from './components/body/privacy-policy/privacy-policy.component';
 import { TermsConditionsComponent } from './components/body/terms-conditions/terms-conditions.component';
+import { ServicesComponent } from './components/body/services/services.component';
 
 
 export const routes: Routes = [
@@ -19,6 +20,7 @@ export const routes: Routes = [
     { path: 'team', component: TeamComponent},
     { path: 'sponsors', component: SponsorsComponent},
     { path: 'contact', component: ContactComponent},
+    { path: 'services', component: ServicesComponent},
     { path: 'privacypolicy', component: PrivacyPolicyComponent},
     { path: 'termsconditions', component: TermsConditionsComponent}
 ];

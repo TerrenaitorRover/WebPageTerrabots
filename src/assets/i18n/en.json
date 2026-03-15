@@ -6,7 +6,8 @@
     "TEAM": "Team",
     "SPONSORS": "Sponsors",
     "NEWS": "News",
-    "CONTACT": "Contact"
+    "CONTACT": "Contact",
+    "SERVICES": "Services"
   },
   "ABOUT": {
     "TITLE": "About Us",
@@ -129,5 +130,19 @@
     "THANK_YOU": "Thank you for believing in Peruvian robotics and the talent of our students.",
     "COPIED": "Copied",
     "COPY_FAILED": "Failed to copy."
+  },
+  "SERVICES": {
+    "PAGE_TITLE": "Our Services",
+    "PAGE_DESC": "We offer specialized engineering services powered by our team's expertise in robotics, electronics, and advanced manufacturing.",
+    "CONTACT_VIA_WHATSAPP": "Contact via WhatsApp",
+    "MORE_COMING": "More services coming soon. Stay tuned!",
+    "PRINTING_3D": {
+      "TITLE": "3D Printing Service",
+      "DESCRIPTION": "High-quality 3D printing for prototypes, mechanical parts, custom enclosures, and functional components. We use FDM technology with a variety of materials to bring your designs to life.",
+      "FEATURE_1": "PLA, PETG, TPU and ABS materials available",
+      "FEATURE_2": "Custom parts from your STL/3MF files",
+      "FEATURE_3": "Prototyping for academic and industrial projects",
+      "FEATURE_4": "Fast turnaround and competitive pricing"
+    }
   }
 }
