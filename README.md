@@ -11,7 +11,7 @@ We design and build autonomous robotic systems — including the **Terranaitor R
 - **Language:** TypeScript (strict mode)
 - **i18n:** ngx-translate (English/Spanish, runtime toggle)
 - **Deployment:** Netlify (SPA redirect)
-- **Backend:** Node.js + Express on Render.com (contact form API)
+- **Backend:** Netlify Function → Google Apps Script → Gmail (contact form)
 
 ## Getting Started
 
@@ -44,7 +44,7 @@ src/
 │   ├── app.component.*          # Root component (navbar + router-outlet + footer)
 │   ├── app.config.ts            # Providers: router, HttpClient, Forms, TranslateModule
 │   ├── app.routes.ts            # Route definitions
-│   ├── email.service.ts         # Contact form API service (POST /send-email)
+│   ├── email.service.ts         # Contact form API service (POST /.netlify/functions/contact)
 │   └── components/
 │       ├── navbar/              # Responsive nav with mobile hamburger menu + language toggle
 │       ├── footer/              # Site-wide footer
@@ -129,24 +129,66 @@ The website supports **English** and **Spanish** with runtime language switching
 
 - Home, Team, Sponsors, Footer, Privacy Policy, Terms & Conditions
 
-## Backend API
+## Contact Form Architecture
 
-The frontend is a client-side SPA. The only backend is a separate contact form service:
+The contact form uses a three-layer architecture for security and reliability:
 
-- **Endpoint:** `POST https://servewebterrabots.onrender.com/send-email`
-- **Health check:** `GET https://servewebterrabots.onrender.com/healthz`
-- **Payload:** `{ email, subject, message }`
-- **Called from:** `src/app/email.service.ts`
-- **Hosted on:** Render.com (separate repository)
-- **SMTP:** Gmail with App Password
-- **Environment variables (Render):** `EMAIL_USER`, `EMAIL_PASS`, `ALLOWED_ORIGINS`
-- **Timeout:** Frontend applies a 30s timeout via RxJS `timeout()` operator
+```
+Frontend Form → Netlify Function → Google Apps Script → Gmail
+```
+
+### Flow
+
+1. User fills form + completes Cloudflare Turnstile verification
+2. Frontend sends `{ email, subject, message, website, startedAt, turnstileToken }` to `/.netlify/functions/contact`
+3. Netlify Function validates: honeypot, timing, Turnstile token, required fields
+4. If valid, forwards `{ email, subject, message }` to Google Apps Script Web App
+5. Apps Script sends email to lab inbox + auto-reply to sender via Gmail
+
+### Anti-spam layers
+
+- **Honeypot field:** Hidden `website` input — bots auto-fill it, humans don't see it
+- **Timing check:** Rejects submissions under 3 seconds (bot speed)
+- **Cloudflare Turnstile:** Server-side token validation before forwarding
+- **Apps Script URL hidden:** Never exposed in frontend code
+
+### Key files
+
+- `netlify/functions/contact.mjs` — Netlify serverless function (validation + forwarding)
+- `src/app/email.service.ts` — Angular service, POSTs to `/.netlify/functions/contact`
+- `src/app/components/body/contact/contact.component.ts` — Form logic, Turnstile integration
+
+### Environment variables (Netlify)
+
+- `APPS_SCRIPT_URL` — Google Apps Script Web App deployment URL
+- `TURNSTILE_SECRET_KEY` — Cloudflare Turnstile secret key
+
+### Frontend config
+
+- Turnstile site key in `contact.component.ts` auto-switches via `isDevMode()` (test key for localhost, production key for deploy)
+- Frontend timeout: 20s via RxJS `timeout()` operator
+
+## Local Development with Netlify Functions
+
+To test the contact form locally, use `netlify dev`:
+
+```powershell
+# Set env vars locally (PowerShell) — use Cloudflare test keys for localhost
+$env:TURNSTILE_SECRET_KEY="1x0000000000000000000000000000000AA"
+$env:APPS_SCRIPT_URL="<your Apps Script URL>"
+netlify dev
+```
+
+Open `http://localhost:8888` (not 4200) — Netlify proxies Angular + Functions through this port. The Turnstile site key auto-switches to Cloudflare's test key in dev mode.
 
 ## Deployment
 
-Deployed on **Netlify** with SPA routing configured in `netlify.toml`:
+Deployed on **Netlify** with SPA routing and serverless functions:
 
 ```toml
+[functions]
+  directory = "netlify/functions"
+
 [[redirects]]
   from = "/*"
   to = "/index.html"

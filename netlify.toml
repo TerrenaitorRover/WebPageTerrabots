@@ -1,3 +1,14 @@
+[dev]
+  command = "npx ng serve --port 4200"
+  targetPort = 4200
+  port = 8888
+  autoLaunch = false
+  framework = "#custom"
+  timeout = 120000
+
+[functions]
+  directory = "netlify/functions"
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
