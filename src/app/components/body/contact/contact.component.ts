@@ -4,8 +4,6 @@ import { CommonModule } from '@angular/common';
 import { EmailService } from '../../../email.service';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
-declare var turnstile: any;
-
 const TURNSTILE_SITE_KEY_PROD = '0x4AAAAAACq9Po-fcGtim7tk';
 const TURNSTILE_SITE_KEY_TEST = '1x00000000000000000000AA';
 
@@ -44,26 +42,32 @@ export class ContactComponent implements AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    if (this.turnstileWidgetId !== null && typeof turnstile !== 'undefined') {
-      turnstile.remove(this.turnstileWidgetId);
+    const ts = (window as any).turnstile;
+    if (this.turnstileWidgetId !== null && ts) {
+      ts.remove(this.turnstileWidgetId);
     }
   }
 
   private renderTurnstile(attempts = 0) {
-    if (attempts > 30) {
-      console.error('Turnstile: failed to load after 30 attempts');
+    if (attempts > 40) {
+      console.error('Turnstile: failed to load after 40 attempts');
       return;
     }
 
+    const ts = (window as any).turnstile;
     const container = document.getElementById('turnstile-container');
-    if (typeof turnstile === 'undefined' || !container) {
+
+    if (!ts || !container) {
+      if (attempts % 10 === 0) {
+        console.log('Turnstile: waiting...', { scriptLoaded: !!(window as any).__turnstileLoaded, apiExists: !!ts, containerExists: !!container });
+      }
       setTimeout(() => this.renderTurnstile(attempts + 1), 500);
       return;
     }
 
     const siteKey = isDevMode() ? TURNSTILE_SITE_KEY_TEST : TURNSTILE_SITE_KEY_PROD;
 
-    this.turnstileWidgetId = turnstile.render(container, {
+    this.turnstileWidgetId = ts.render(container, {
       sitekey: siteKey,
       theme: 'dark',
       callback: (token: string) => { this.turnstileToken = token; },
@@ -114,8 +118,9 @@ export class ContactComponent implements AfterViewInit, OnDestroy {
 
   private resetTurnstile() {
     this.turnstileToken = '';
-    if (this.turnstileWidgetId !== null && typeof turnstile !== 'undefined') {
-      turnstile.reset(this.turnstileWidgetId);
+    const ts = (window as any).turnstile;
+    if (this.turnstileWidgetId !== null && ts) {
+      ts.reset(this.turnstileWidgetId);
     }
   }
 
