@@ -56,6 +56,7 @@ src/
 │           ├── team/            # Team members
 │           ├── sponsors/        # Sponsors & partners
 │           ├── contact/         # Contact form, location map, social links, donations (i18n)
+│           ├── services/        # Services catalog with WhatsApp CTA (i18n)
 │           ├── privacy-policy/  # Privacy policy
 │           └── terms-conditions/# Terms & conditions
 ├── assets/
@@ -78,10 +79,11 @@ src/
 | `/team`             | TeamComponent            | Team members & roles                               |
 | `/sponsors`         | SponsorsComponent        | Academic & corporate partners                      |
 | `/contact`          | ContactComponent         | Contact form, location, social links, donations    |
+| `/services`         | ServicesComponent        | Services catalog (3D printing, etc.)               |
 | `/privacypolicy`    | PrivacyPolicyComponent   | Privacy policy                                     |
 | `/termsconditions`  | TermsConditionsComponent | Terms & conditions                                 |
 
-**Navigation order:** Home, About, News, Projects, Team, Sponsors, Contact
+**Navigation order:** Home, About, News, Projects, Team, Sponsors, Contact, Services
 
 ## Page Details
 
@@ -92,6 +94,9 @@ Single featured milestone card highlighting the lab's 5th place worldwide result
 - **Development Process:** Strategic Planning, Prototype Engineering, Field Validation (3-card grid)
 - **Rover Subsystems:** Control & Navigation, Mechanics, Electronics, Artificial Intelligence (2x2 grid)
 - **Results & Progress:** Autonomous Navigation Test, Full System Integration, AI Terrain Classification
+
+### Services
+Scalable card-based catalog of lab services. Each card includes an image, title, description, feature checklist with checkmarks, and a WhatsApp CTA button linking directly to the responsible team member. Currently features 3D Printing. Data-driven — add new services by pushing to the `services` array in `services.component.ts` and adding translation keys to `en.json`/`es.json`.
 
 ### Contact
 Two-column layout on desktop (stacked on mobile):
@@ -124,6 +129,7 @@ The website supports **English** and **Spanish** with runtime language switching
 - News (full page)
 - Projects (full page)
 - Contact (form, location, social links, donations, toast notifications)
+- Services (page title, descriptions, features, CTA)
 
 ### Not yet translated
 
