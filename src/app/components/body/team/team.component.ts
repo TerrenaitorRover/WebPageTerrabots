@@ -201,7 +201,8 @@ export class TeamComponent {
           name: 'Flavia Fernanda Cavero Benites',
           career: 'Engineering Physics - UNI',
           role: 'Member',
-          photo: 'assets/team/mecanica/Flavia_Fernanda_Cavero_Benites.jpeg'
+          photo: 'assets/team/mecanica/Flavia_Fernanda_Cavero_Benites.jpeg',
+          linkedin: 'https://www.linkedin.com/in/flavia-fernanda-cavero-benites-42a7943b7/'
         }
       ]
     },
