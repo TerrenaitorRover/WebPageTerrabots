@@ -26,6 +26,10 @@ export class NavbarComponent {
     this.isMenuOpen = !this.isMenuOpen;
   }
 
+  closeMenu() {
+    this.isMenuOpen = false;
+  }
+
   switchLang() {
     this.currentLang = this.currentLang === 'en' ? 'es' : 'en';
     this.translate.use(this.currentLang);

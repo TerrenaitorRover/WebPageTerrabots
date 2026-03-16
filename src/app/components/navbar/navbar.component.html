@@ -1,20 +1,15 @@
 <!-- navbar.component.html -->
-<nav class="bg-gray-700 border-b border-gray-600">
+<nav class="bg-gray-700 border-b border-gray-600 relative z-50">
   <div class="max-w-full flex items-center justify-between mx-auto py-0 px-3">
-    <!-- Logo bien a la izquierda con imagen -->
+    <!-- Logo -->
     <a href="/" class="flex items-center space-x-2 shrink-0">
-      <!-- Imagen del logo en dorado -->
       <img src="assets/logo-copia.png" alt="TerrenaitorRover Logo" class="w-10 h-10 lg:w-14 lg:h-14 object-contain block" />
-
-      <!-- Texto de marca -->
       <span class="text-base lg:text-lg font-semibold text-white whitespace-nowrap">Terrabots</span>
     </a>
 
-    <!-- Menú de navegación alineado a la derecha -->
+    <!-- Desktop navigation -->
     <div class="hidden lg:flex items-center" id="navbar-default">
-      <ul
-        class="font-medium flex flex-row lg:space-x-4 xl:space-x-6 p-0 bg-transparent">
-
+      <ul class="font-medium flex flex-row lg:space-x-4 xl:space-x-6 p-0 bg-transparent">
         <li><a routerLink="/home" routerLinkActive="text-yellow-400"
             class="text-white text-base hover:text-yellow-400 px-2 py-2 whitespace-nowrap">{{ 'NAV.HOME' | translate }}</a></li>
         <li><a routerLink="/about" routerLinkActive="text-yellow-400"
@@ -33,51 +28,116 @@
             class="text-white text-base hover:text-yellow-400 px-2 py-2 whitespace-nowrap">{{ 'NAV.SERVICES' | translate }}</a></li>
       </ul>
 
-      <!-- Language toggle -->
+      <!-- Language toggle desktop -->
       <button (click)="switchLang()"
         class="ml-4 px-2 py-1 text-xs font-bold border border-yellow-400 text-yellow-400 rounded hover:bg-yellow-400 hover:text-black transition whitespace-nowrap">
         {{ currentLang === 'en' ? 'ES' : 'EN' }}
       </button>
     </div>
 
-    <!-- Menú para móviles -->
+    <!-- Mobile buttons -->
     <div class="lg:hidden flex items-center gap-2">
-      <!-- Language toggle mobile -->
       <button (click)="switchLang()"
         class="px-2 py-1 text-xs font-bold border border-yellow-400 text-yellow-400 rounded hover:bg-yellow-400 hover:text-black transition">
         {{ currentLang === 'en' ? 'ES' : 'EN' }}
       </button>
 
-      <button (click)="toggleMenu()" class="text-white">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <button (click)="toggleMenu()" class="text-white p-1">
+        <!-- Hamburger icon -->
+        <svg *ngIf="!isMenuOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+        <!-- Close icon -->
+        <svg *ngIf="isMenuOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
         </svg>
       </button>
     </div>
   </div>
+</nav>
 
-  <!-- Menú móvil -->
-  <div *ngIf="isMenuOpen" [ngClass]="{'rounded-lg': isMenuOpen}" class="lg:hidden mt-4 space-y-2">
-    <ul
-      class="font-medium flex flex-col p-4 mt-4 bg-gray-700">
-
-      <li><a routerLink="/home" routerLinkActive="text-yellow-400"
-          class="text-white text-lg hover:text-yellow-400 px-3 py-2">{{ 'NAV.HOME' | translate }}</a></li>
-      <li><a routerLink="/about" routerLinkActive="text-yellow-400"
-          class="text-white text-lg hover:text-yellow-400 px-3 py-2">{{ 'NAV.ABOUT' | translate }}</a></li>
-      <li><a routerLink="/news" routerLinkActive="text-yellow-400"
-          class="text-white text-lg hover:text-yellow-400 px-3 py-2">{{ 'NAV.NEWS' | translate }}</a></li>
-      <li><a routerLink="/projects" routerLinkActive="text-yellow-400"
-          class="text-white text-lg hover:text-yellow-400 px-3 py-2">{{ 'NAV.PROJECTS' | translate }}</a></li>
-      <li><a routerLink="/team" routerLinkActive="text-yellow-400"
-          class="text-white text-lg hover:text-yellow-400 px-3 py-2">{{ 'NAV.TEAM' | translate }}</a></li>
-      <li><a routerLink="/sponsors" routerLinkActive="text-yellow-400"
-          class="text-white text-lg hover:text-yellow-400 px-3 py-2">{{ 'NAV.SPONSORS' | translate }}</a></li>
-      <li><a routerLink="/contact" routerLinkActive="text-yellow-400"
-          class="text-white text-lg hover:text-yellow-400 px-3 py-2">{{ 'NAV.CONTACT' | translate }}</a></li>
-      <li><a routerLink="/services" routerLinkActive="text-yellow-400"
-          class="text-white text-lg hover:text-yellow-400 px-3 py-2">{{ 'NAV.SERVICES' | translate }}</a></li>
-    </ul>
+<!-- Mobile slide-in overlay -->
+<div class="lg:hidden">
+  <!-- Backdrop -->
+  <div
+    class="fixed inset-0 bg-black/60 z-40 backdrop-blur-sm transition-opacity duration-300"
+    [ngClass]="isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'"
+    (click)="closeMenu()">
   </div>
 
-</nav>
+  <!-- Slide-in panel from right -->
+  <div
+    class="fixed top-0 right-0 h-full w-72 bg-[#1a1a2e] border-l border-gray-700 z-50 shadow-2xl transition-transform duration-300 ease-in-out flex flex-col"
+    [ngClass]="isMenuOpen ? 'translate-x-0' : 'translate-x-full'">
+
+    <!-- Panel header -->
+    <div class="flex items-center justify-between px-5 py-4 border-b border-gray-700/50">
+      <div class="flex items-center gap-2">
+        <img src="assets/logo-copia.png" alt="Logo" class="w-8 h-8 object-contain" />
+        <span class="text-white font-semibold text-sm">Terrabots</span>
+      </div>
+      <button (click)="closeMenu()" class="text-gray-400 hover:text-white transition p-1">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Navigation links -->
+    <ul class="flex-1 overflow-y-auto py-3 px-3">
+      <li>
+        <a routerLink="/home" routerLinkActive="text-yellow-400 bg-yellow-400/10" (click)="closeMenu()"
+          class="block text-gray-200 text-sm font-medium hover:text-yellow-400 hover:bg-yellow-400/5 px-4 py-2.5 rounded-lg transition-all duration-200">
+          {{ 'NAV.HOME' | translate }}
+        </a>
+      </li>
+      <li>
+        <a routerLink="/about" routerLinkActive="text-yellow-400 bg-yellow-400/10" (click)="closeMenu()"
+          class="block text-gray-200 text-sm font-medium hover:text-yellow-400 hover:bg-yellow-400/5 px-4 py-2.5 rounded-lg transition-all duration-200">
+          {{ 'NAV.ABOUT' | translate }}
+        </a>
+      </li>
+      <li>
+        <a routerLink="/news" routerLinkActive="text-yellow-400 bg-yellow-400/10" (click)="closeMenu()"
+          class="block text-gray-200 text-sm font-medium hover:text-yellow-400 hover:bg-yellow-400/5 px-4 py-2.5 rounded-lg transition-all duration-200">
+          {{ 'NAV.NEWS' | translate }}
+        </a>
+      </li>
+      <li>
+        <a routerLink="/projects" routerLinkActive="text-yellow-400 bg-yellow-400/10" (click)="closeMenu()"
+          class="block text-gray-200 text-sm font-medium hover:text-yellow-400 hover:bg-yellow-400/5 px-4 py-2.5 rounded-lg transition-all duration-200">
+          {{ 'NAV.PROJECTS' | translate }}
+        </a>
+      </li>
+      <li>
+        <a routerLink="/team" routerLinkActive="text-yellow-400 bg-yellow-400/10" (click)="closeMenu()"
+          class="block text-gray-200 text-sm font-medium hover:text-yellow-400 hover:bg-yellow-400/5 px-4 py-2.5 rounded-lg transition-all duration-200">
+          {{ 'NAV.TEAM' | translate }}
+        </a>
+      </li>
+      <li>
+        <a routerLink="/sponsors" routerLinkActive="text-yellow-400 bg-yellow-400/10" (click)="closeMenu()"
+          class="block text-gray-200 text-sm font-medium hover:text-yellow-400 hover:bg-yellow-400/5 px-4 py-2.5 rounded-lg transition-all duration-200">
+          {{ 'NAV.SPONSORS' | translate }}
+        </a>
+      </li>
+      <li>
+        <a routerLink="/contact" routerLinkActive="text-yellow-400 bg-yellow-400/10" (click)="closeMenu()"
+          class="block text-gray-200 text-sm font-medium hover:text-yellow-400 hover:bg-yellow-400/5 px-4 py-2.5 rounded-lg transition-all duration-200">
+          {{ 'NAV.CONTACT' | translate }}
+        </a>
+      </li>
+      <li>
+        <a routerLink="/services" routerLinkActive="text-yellow-400 bg-yellow-400/10" (click)="closeMenu()"
+          class="block text-gray-200 text-sm font-medium hover:text-yellow-400 hover:bg-yellow-400/5 px-4 py-2.5 rounded-lg transition-all duration-200">
+          {{ 'NAV.SERVICES' | translate }}
+        </a>
+      </li>
+    </ul>
+
+    <!-- Panel footer -->
+    <div class="px-5 py-4 border-t border-gray-700/50">
+      <p class="text-gray-500 text-xs text-center">Robotics & Embodied AI Lab — UNI</p>
+    </div>
+  </div>
+</div>
