@@ -54,6 +54,13 @@ export class TeamComponent {
           role: 'Advisor',
           photo: 'assets/team/advisors/edgar-medina-castaneda.png',
           linkedin: 'https://www.linkedin.com/in/emedinac/'
+        },
+        {
+          name: 'Yury Oscar Tello Canchapoma',
+          career: 'MBA & Systems Engineer',
+          role: 'Advisor',
+          photo: 'assets/team/advisors/Yury_Oscar_Tello_Canchapoma.jpeg',
+          linkedin: 'https://www.linkedin.com/in/ytello/'
         }
       ]
     },
